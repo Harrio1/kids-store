@@ -3,18 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Витрина детского магазина</title>
+    <title>Солнышко - Витрина детского магазина</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
-            <a href="#">Магазин</a>
+            <a href="#">Солнышко</a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Главная</a></li>
-            <li><a href="#">Каталог</a></li>
+            <li class="dropdown">
+                <a href="#">Мальчики 2-13 лет</a>
+                <div class="dropdown-content">
+                    <div class="column">
+                        <h3>Зимняя верхняя одежда</h3>
+                        <ul>
+                            <li><a href="#">Комбинезоны</a></li>
+                            <li><a href="#">Куртки</a></li>
+                            <li><a href="#">Пальто, плащи</a></li>
+                            <li><a href="#">Брюки</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Осенняя верхняя одежда</h3>
+                        <ul>
+                            <li><a href="#">Комбинезоны</a></li>
+                            <li><a href="#">Ветровки</a></li>
+                            <li><a href="#">Жилеты</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Девочки 2-13 лет</a>
+                <div class="dropdown-content">
+                    <div class="column">
+                        <h3>Платья</h3>
+                        <ul>
+                            <li><a href="#">Летние</a></li>
+                            <li><a href="#">Вечерние</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Рубашки, блузки</h3>
+                        <ul>
+                            <li><a href="#">Классические</a></li>
+                            <li><a href="#">Повседневные</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Новорожденные 0-2 лет</a>
+                <div class="dropdown-content">
+                    <div class="column">
+                        <h3>Верхняя одежда</h3>
+                        <ul>
+                            <li><a href="#">Зимние комбинезоны</a></li>
+                            <li><a href="#">Осенние комбинезоны</a></li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>Товары для новорожденных</h3>
+                        <ul>
+                            <li><a href="#">Комбинезоны-конверты</a></li>
+                            <li><a href="#">Аксессуары</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
             <li><a href="#">О нас</a></li>
             <li><a href="#">Контакты</a></li>
         </ul>
@@ -26,27 +85,13 @@
     </nav>
 
     <section class="hero">
-        <h1>Добро пожаловать в наш магазин!</h1>
+        <h1>Добро пожаловать в Солнышко!</h1>
         <p>Лучшие товары для ваших детей</p>
-        <button>Узнать больше</button>
     </section>
-
-    <div class="product-card">
-        <img src="path/to/product/image.jpg" alt="Product Name">
-        <h2>Название товара</h2>
-        <p>Цена: 1000 руб.</p>
-        <button>Купить</button>
-    </div>
 
     <footer>
         <div class="footer-content">
             <p>Контакты: +7 (123) 456-78-90</p>
-            <p>Email: info@kidsstore.ru</p>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">VK</a>
-            </div>
         </div>
     </footer>
 </body>
