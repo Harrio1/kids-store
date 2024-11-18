@@ -52,6 +52,10 @@
         "start": [
             "@php artisan migrate",
             "@php artisan serve"
+        ],
+        "serve": [
+            "@php artisan migrate",
+            "@php artisan serve"
         ]
     },
     "extra": {

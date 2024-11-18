@@ -30,6 +30,7 @@ class ProductController extends Controller
         ]);
 
         Product::create($request->all());
+        
 
         return redirect()->route('admin.products.index')
                          ->with('success', 'Товар успешно добавлен.');
@@ -60,6 +61,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        $products = Product::paginate(10);
+        
 
         return redirect()->route('admin.products.index')
                          ->with('success', 'Товар успешно удалён.');
