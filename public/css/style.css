@@ -27,7 +27,9 @@ body {
     align-items: center;
     background-color: #FFD700;
     padding: 10px 20px;
-    overflow-x: auto;
+  
+    position: relative;
+    z-index: 999;
 }
 
 .logo a {
@@ -61,18 +63,21 @@ body {
     color: #007bff;
 }
 
+.nav-links .dropdown {
+    position: relative;
+}
+
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #ffffff;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    z-index: 10000;
     border-radius: 8px;
     padding: 20px;
     width: 600px;
-    left: 0;
-    right: 0;
-    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .dropdown-content .column {
@@ -104,7 +109,7 @@ body {
     background-color: #f1f1f1;
 }
 
-.dropdown:hover .dropdown-content {
+.nav-links .dropdown:hover .dropdown-content {
     display: block;
 }
 
@@ -292,3 +297,4 @@ body {
         display: none;
     }
 }
+

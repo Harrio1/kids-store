@@ -15,7 +15,6 @@
             <a href="#">Солнышко</a>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Главная</a></li>
             <li class="dropdown">
                 <a href="#">Мальчики 2-13 лет</a>
                 <div class="dropdown-content">
@@ -88,7 +87,6 @@
 
     <div id="sidebar" class="sidebar">
         <ul class="sidebar-links">
-            <li><a href="#">Главная</a></li>
             <li><a href="#">Мальчики 2-13 лет</a></li>
             <li><a href="#">Девочки 2-13 лет</a></li>
             <li><a href="#">Новорожденные 0-2 лет</a></li>
@@ -170,13 +168,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            const isVisible = dropdown.style.display === 'block';
+            document.querySelectorAll('.dropdown-content').forEach(el => el.style.display = 'none');
+            dropdown.style.display = isVisible ? 'none' : 'block';
+        }
+
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
-            if (sidebar.style.width === '250px') {
-                sidebar.style.width = '0';
-            } else {
-                sidebar.style.width = '250px';
-            }
+            sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
         }
     </script>
 </body>
