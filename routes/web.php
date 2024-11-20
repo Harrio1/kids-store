@@ -14,7 +14,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('/', [ProductController::class, 'index']);
 Route::middleware(['auth'])->group(function () {
@@ -22,4 +22,24 @@ Route::middleware(['auth'])->group(function () {
 });
 Route::get('/', function () {
     return view('home');
+});
+
+Route::get('/boys', function () {
+    return view('boys.boys');
+});
+
+Route::get('/girls', function () {
+    return view('girls.girls');
+});
+
+Route::get('/newborns', function () {
+    return view('kids.newborns');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contacts', function () {
+    return view('contacts');
 });

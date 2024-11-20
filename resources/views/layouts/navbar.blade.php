@@ -1,0 +1,74 @@
+<nav class="navbar">
+    <div class="logo">
+        <a href="/">Солнышко</a>
+    </div>
+    <ul class="nav-links">
+        <li class="dropdown">
+            <a href="/boys">Мальчики 2-13 лет</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <h3>Зимняя верхняя одежда</h3>
+                    <ul>
+                        <li><a href="#">Комбинезоны</a></li>
+                        <li><a href="#">Куртки</a></li>
+                        <li><a href="#">Пальто, плащи</a></li>
+                        <li><a href="#">Брюки</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Осенняя верхняя одежда</h3>
+                    <ul>
+                        <li><a href="#">Комбинезоны</a></li>
+                        <li><a href="#">Ветровки</a></li>
+                        <li><a href="#">Жилеты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="/girls">Девочки 2-13 лет</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <h3>Платья</h3>
+                    <ul>
+                        <li><a href="#">Летние</a></li>
+                        <li><a href="#">Вечерние</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Рубашки, блузки</h3>
+                    <ul>
+                        <li><a href="#">Классические</a></li>
+                        <li><a href="#">Повседневные</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a href="/newborns">Новорожденные 0-2 лет</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <h3>Верхняя одежда</h3>
+                    <ul>
+                        <li><a href="#">Зимние комбинезоны</a></li>
+                        <li><a href="#">Осенние комбинезоны</a></li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Товары для новорожденных</h3>
+                    <ul>
+                        <li><a href="#">Комбинезоны-конверты</a></li>
+                        <li><a href="#">Аксессуары</a></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        <li><a href="/about">О нас</a></li>
+        <li><a href="/contacts">Контакты</a></li>
+    </ul>
+    <div class="burger" onclick="toggleSidebar()">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+</nav>

@@ -12,11 +12,11 @@
 <body class="background">
     <nav class="navbar">
         <div class="logo">
-            <a href="#">Солнышко</a>
+            <a href="/">Солнышко</a>
         </div>
         <ul class="nav-links">
             <li class="dropdown">
-                <a href="#">Мальчики 2-13 лет</a>
+                <a href="/boys">Мальчики 2-13 лет</a>
                 <div class="dropdown-content">
                     <div class="column">
                         <h3>Зимняя верхняя одежда</h3>
@@ -38,7 +38,7 @@
                 </div>
             </li>
             <li class="dropdown">
-                <a href="#">Девочки 2-13 лет</a>
+                <a href="/girls">Девочки 2-13 лет</a>
                 <div class="dropdown-content">
                     <div class="column">
                         <h3>Платья</h3>
@@ -57,7 +57,7 @@
                 </div>
             </li>
             <li class="dropdown">
-                <a href="#">Новорожденные 0-2 лет</a>
+                <a href="/newborns">Новорожденные 0-2 лет</a>
                 <div class="dropdown-content">
                     <div class="column">
                         <h3>Верхняя одежда</h3>
