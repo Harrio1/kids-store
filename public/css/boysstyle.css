@@ -1,0 +1,161 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #2c3e50;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.filters {
+    width: 250px;
+    margin-right: 20px;
+}
+
+.filter-category {
+    margin-bottom: 20px;
+}
+
+.filter-category h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #34495e;
+    cursor: default;
+}
+
+.filter-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filter-category ul ul {
+    display: none;
+}
+
+.filter-category ul > li {
+    cursor: pointer;
+  
+    position: relative;
+    padding-right: 20px;
+}
+
+
+.filter-category ul > li::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #2c3e50;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+
+.filter-category ul > li.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.filter-category ul ul > li::after {
+    content: none;
+}
+
+.products {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.product {
+    margin: 10px;
+    width: 220px;
+    text-align: center;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product p {
+    margin: 5px 0;
+    color: #2c3e50;
+}
+
+.product p.price {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.filter-category ul > li.active ul {
+    display: block;
+}
+
+.filter-category ul ul > li {
+    font-size: 0.9em;
+}
+
+.product-name {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.default-image,
+.hover-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hover-image {
+    opacity: 0;
+}
+
+.image-container:hover .hover-image {
+    opacity: 1;
+}
+
+.image-container:hover .default-image {
+    opacity: 0;
+}

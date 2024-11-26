@@ -69,48 +69,52 @@ body {
 
 .dropdown-content {
     display: none;
-    position: absolute;
-    background-color: #ffffff;
+    position: fixed;
+    background-color: #f9f9f9;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 10000;
-    border-radius: 8px;
     padding: 20px;
-    width: 600px;
-    left: 50%;
-    transform: translateX(-50%);
+    z-index: 1;
+    width: 100%;
+    left: 0;
 }
 
-.dropdown-content .column {
-    float: left;
-    width: 50%;
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+    gap: 20px;
+}
+
+.column {
     padding: 10px;
 }
 
-.dropdown-content h3 {
-    margin-top: 0;
+.column h3 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
 }
 
-.dropdown-content ul {
+.column ul {
     list-style: none;
     padding: 0;
 }
 
-.dropdown-content li {
-    margin: 5px 0;
+.column ul li {
+    margin-bottom: 5px;
 }
 
-.dropdown-content li a {
-    color: #333;
+.column ul li a {
     text-decoration: none;
-    display: block;
+    color: #007bff;
+    transition: color 0.3s;
 }
 
-.dropdown-content li a:hover {
-    background-color: #f1f1f1;
-}
-
-.nav-links .dropdown:hover .dropdown-content {
-    display: block;
+.column ul li a:hover {
+    color: #0056b3;
 }
 
 .hero {
