@@ -6,7 +6,8 @@
     <title>Солнышко - Витрина детского магазина</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 
 </head>
 <body class="background">
@@ -25,44 +26,12 @@
         <h1>Добро пожаловать в Солнышко!</h1>
         <p>Лучшие товары для ваших детей</p>
     </section>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-        <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="d-block w-100" style="height: 300px; background-color: #ccc;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Подпись 1</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="d-block w-100" style="height: 300px; background-color: #aaa;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Подпись 2</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="d-block w-100" style="height: 300px; background-color: #888;">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Подпись 3</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
-            <span class="sr-only">Next</span>
-        </a>
+    
+    <div class="carousel" style="height: 322px;">
+        <div><img src="{{ asset('img/detskaya-odezhda-opt-2-Photoroom (1).png') }}" alt="Image 1"></div>
+        <div><img src="{{ asset('img/2231629.jpg') }}" alt="Image 2"></div>
     </div>
+
     <div class="container">
         <div class="product-grid">
             <div class="product-item">
@@ -84,11 +53,15 @@
         </div>
     </div>
 
+
+
     @include('layouts.footer')
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         function toggleDropdown(id) {
             const dropdown = document.getElementById(id);
@@ -101,6 +74,27 @@
             const sidebar = document.getElementById('sidebar');
             sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
         }
+
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+            });
+        });
+
+      
+
+        // Удалите или закомментируйте эти строки, если карта не нужна
+        // ymaps.ready(init);
+
+        // function init() {
+        //     // Ваш код для работы с картой
+        // }
     </script>
 </body>
 </html>
