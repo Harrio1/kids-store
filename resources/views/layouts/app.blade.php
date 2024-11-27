@@ -49,10 +49,12 @@
 
     <div class="container">
         <div class="product-grid">
-            <div class="product-item">
-                <h3>Одежда из флиса</h3>
-                <img src="{{ asset('img/FELS1.png') }}" alt="Одежда из флиса">
-            </div>
+            <a href="/boys" class="product-item-link">
+                <div class="product-item">
+                    <h3>Одежда из флиса</h3>
+                    <img src="{{ asset('img/FELS1.png') }}" alt="Одежда из флиса">
+                </div>
+            </a>
             <div class="product-item kurtki">
                 <h3>Куртки</h3>
                 <img src="{{ asset('img/Kurtki.png') }}" alt="Куртки">

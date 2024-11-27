@@ -5,9 +5,13 @@
     <title>Одежда для мальчиков</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/boysstyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mobile.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     @include('layouts.navbar')
+    
+    @include('layouts.mobile_sidebar')
 
     <h1>Одежда для мальчиков</h1>
 
@@ -110,7 +114,10 @@
                 <div class="product-name">Пижама для мальчика - футболка и брюки из натурального хлопка</div>
                 <p class="price">1 399 р.</p>
             </div>
-            <div class="product">
+            <div class="product no-animation">
+                <div class="image-container">
+                    <img src="{{ asset('img/boys/1_4.jpg') }}" alt="Пижама" class="default-image">
+                </div>
                 <div class="product-name">Халат из петельчатого флиса для мальчика</div>
                 <p class="price">1 999 р.</p>
             </div>
@@ -132,5 +139,6 @@
             element.classList.toggle('active');
         }
     </script>
+     @include('layouts.scripts')
 </body>
 </html>

@@ -166,7 +166,7 @@ body {
     max-width: 300px; /* Максимальная ширина элемента */
     box-sizing: border-box;
     text-align: center;
-    background-color: var(--product-bg-color);
+    background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -179,9 +179,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.product-item.kurtki {
-    margin-top: -10px; /* Поднимите изображение вверх */
-}
+
 
 @media (max-width: 1024px) {
     .container {
@@ -366,24 +364,7 @@ body {
     border-radius: 0 0 8px 8px;
 }
 
-/* Медиа-запросы для изменения высоты изображений на разных устройствах */
-@media (max-width: 1024px) {
-    .carousel {
-        height: 250px;
-    }
-}
 
-@media (max-width: 768px) {
-    .carousel {
-        height: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    .carousel {
-        height: 150px;
-    }
-}
 
 .close-btn {
     position: absolute;
@@ -429,4 +410,12 @@ body {
     color: var(--text-color);
     cursor: pointer;
 }
+
+.product-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
 

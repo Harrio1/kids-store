@@ -1,0 +1,85 @@
+@media (max-width: 1024px) {
+    .container {
+        padding: 10px;
+    }
+
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .product-item {
+        flex: 1 1 calc(50% - 20px); /* Два блока в ряд */
+    }
+
+    .carousel {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: none; /* Скрыть навигационные ссылки */
+    }
+
+    .burger {
+        display: flex; /* Показать кнопку "бургер" */
+        cursor: pointer;
+    }
+
+    .hero {
+        padding: 20px;
+    }
+
+    .product-item {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+
+    .carousel {
+        height: 200px;
+    }
+}
+@media (max-width: 768px) {
+    .filters {
+        display: none; /* Скрыть фильтры ассортимента */
+    }
+
+    .container {
+        justify-content: center; /* Центрировать контент */
+    }
+}
+
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px;
+    }
+
+    .hero {
+        padding: 10px;
+    }
+
+    .footer-content {
+        padding: 5px 0;
+    }
+
+    .carousel {
+        height: 150px;
+    }
+}
+
+
+
+.hero {
+    margin-top: 50px; /* Добавьте отступ сверху, чтобы приветствие не перекрывалось */
+} 
+
+
+
+
