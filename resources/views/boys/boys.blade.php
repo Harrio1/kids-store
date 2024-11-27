@@ -96,10 +96,17 @@
                 <p class="price">1 299 р.</p>
             </div>
             <div class="product">
+                <div class="image-container">
+                    <img src="{{ asset('img/boys/pijam2.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/boys/pijam_animat2.jpg') }}" alt="Пижама" class="hover-image">
+                </div>
                 <div class="product-name">Пижама для мальчика - футболка и брюки из натурального хлопка</div>
                 <p class="price">1 399 р.</p>
             </div>
-            <div class="product">
+            <div class="product no-animation">
+                <div class="image-container">
+                    <img src="{{ asset('img/boys/1_3.jpg') }}" alt="Пижама" class="default-image">
+                </div>
                 <div class="product-name">Пижама для мальчика - футболка и брюки из натурального хлопка</div>
                 <p class="price">1 399 р.</p>
             </div>

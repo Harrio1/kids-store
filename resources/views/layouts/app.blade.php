@@ -13,13 +13,28 @@
 <body class="background">
      @include('layouts.navbar')
     <div id="sidebar" class="sidebar">
-        <ul class="sidebar-links">
-            <li><a href="#">Мальчики 2-13 лет</a></li>
-            <li><a href="#">Девочки 2-13 лет</a></li>
-            <li><a href="#">Новорожденные 0-2 лет</a></li>
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Контакты</a></li>
-        </ul>
+        <div class="sidebar-header">
+            <button id="back-button" onclick="showMainMenu()" style="display: none;">Назад</button>
+            <span class="close-btn" onclick="closeSidebar()">&times;</span>
+        </div>
+        <div id="sidebar-content">
+            <ul class="sidebar-links" id="main-menu">
+                <li onclick="showBoysMenu()">Мальчики 2-13 лет</li>
+                <li onclick="showGirlsMenu()">Девочки 2-13 лет</li>
+                <li onclick="showNewbornsMenu()">Новорожденные 0-2 лет</li>
+            </ul>
+            <ul class="sidebar-links" id="boys-menu" style="display: none;">
+                <li><a href="/boys">Вся одежда</a></li>
+                <li>Зимняя верхняя одежда</li>
+                <li>Осенняя верхняя одежда</li>
+                <li>Поддева под комбинезоны</li>
+                <li>Головные уборы, шарфы</li>
+                <li>Рукавицы, перчатки</li>
+                <li>Повседневная одежда</li>
+                <li>Школа и спорт</li>
+                <li>Белье, одежда для дома</li>
+            </ul>
+        </div>
     </div>
 
     <section class="hero">
@@ -27,7 +42,7 @@
         <p>Лучшие товары для ваших детей</p>
     </section>
     
-    <div class="carousel" style="height: 322px;">
+    <div class="carousel">
         <div><img src="{{ asset('img/detskaya-odezhda-opt-2-Photoroom (1).png') }}" alt="Image 1"></div>
         <div><img src="{{ asset('img/2231629.jpg') }}" alt="Image 2"></div>
     </div>
@@ -95,6 +110,28 @@
         // function init() {
         //     // Ваш код для работы с картой
         // }
+
+        function openSidebar() {
+            document.getElementById('sidebar').style.width = '250px';
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').style.width = '0';
+        }
+
+        function showMainMenu() {
+            document.getElementById('main-menu').style.display = 'block';
+            document.getElementById('boys-menu').style.display = 'none';
+            document.getElementById('back-button').style.display = 'none';
+        }
+
+        function showBoysMenu() {
+            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById('boys-menu').style.display = 'block';
+            document.getElementById('back-button').style.display = 'block';
+        }
+
+        // Добавьте аналогичные функции для девочек и новорожденных
     </script>
 </body>
 </html>
