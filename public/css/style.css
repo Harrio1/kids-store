@@ -157,13 +157,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Пробел между элементами */
-    padding: 10px; /* Отступы для сетки продуктов */
+    gap: 20px;
+    padding: 10px;
 }
 
 .product-item {
-    flex: 1 1 calc(25% - 20px); /* Четыре блока в ряд */
-    max-width: 300px; /* Максимальная ширина элемента */
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: 300px;
     box-sizing: border-box;
     text-align: center;
     background-color: #ffffff;
@@ -179,7 +179,17 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+.product-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
+.product-item:last-child {
+    flex: 1 1 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
 
 @media (max-width: 1024px) {
     .container {
@@ -248,13 +258,6 @@ body {
     }
 }
 
-.product-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: contain;
-    padding: 0;
-}
-
 .product-item h3 {
     margin: 10px 0 5px;
     color: var(--text-color);
@@ -278,7 +281,7 @@ body {
     background-color: var(--primary-color);
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    
     z-index: 1000;
 }
 
@@ -364,38 +367,9 @@ body {
     border-radius: 0 0 8px 8px;
 }
 
-
-
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 36px;
+#back-button, .close-btn {
+    background-color: var(--primary-color);
     color: var(--text-color);
-    cursor: pointer;
-    z-index: 1001;
-}
-
-#back-button {
-    margin: 10px;
-    padding: 10px;
-    background-color: var(--secondary-color);
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.sidebar-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-#back-button {
-    background-color: var(--secondary-color);
-    color: white;
     border: none;
     cursor: pointer;
     font-size: 18px;
@@ -406,15 +380,39 @@ body {
 }
 
 .close-btn {
+    position: absolute;
+    right: 20px;
     font-size: 36px;
-    color: var(--text-color);
-    cursor: pointer;
+    z-index: 1001;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 }
 
 .product-item-link {
     text-decoration: none;
     color: inherit;
     display: block;
+}
+
+.sidebar-links li ul.subcategory li {
+    padding-left: 10px; /* Дополнительнй отступ для подкатегорий */
+    font-size: 16px;
+    white-space: normal; /* Разрешить перенос текста */
+    overflow: visible; /* Показать весь текст */
+    text-overflow: clip; /* Убрать многоточие */
+}
+
+.filter-category ul > li.active ul {
+    display: block;
+}
+
+.filter-category ul ul > li {
+    font-size: 0.9em;
 }
 
 

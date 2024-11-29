@@ -32,21 +32,49 @@
         document.getElementById('sidebar').style.width = '250px';
     }
 
-    function closeSidebar() {
+    
+    function closeSidebar() { 
+        showMainMenu();
         document.getElementById('sidebar').style.width = '0';
     }
 
     function showMainMenu() {
-        document.getElementById('main-menu').style.display = 'block';
         document.getElementById('boys-menu').style.display = 'none';
+        document.getElementById('girls-menu').style.display = 'none';
+        document.getElementById('newborns-menu').style.display = 'none';
+        document.getElementById('main-menu').style.display = 'block';
         document.getElementById('back-button').style.display = 'none';
     }
 
     function showBoysMenu() {
-        document.getElementById('main-menu').style.display = 'none';
         document.getElementById('boys-menu').style.display = 'block';
+        document.getElementById('girls-menu').style.display = 'none';
+        document.getElementById('newborns-menu').style.display = 'none';
+        document.getElementById('main-menu').style.display = 'none';
         document.getElementById('back-button').style.display = 'block';
     }
 
-    // Добавьте аналогичные функции для девочек и новорожденных
+    function showGirlsMenu() {
+        document.getElementById('girls-menu').style.display = 'block';
+        document.getElementById('boys-menu').style.display = 'none';
+        document.getElementById('newborns-menu').style.display = 'none';
+        document.getElementById('main-menu').style.display = 'none';
+        document.getElementById('back-button').style.display = 'block';
+    }
+
+    function showNewbornsMenu() {
+        document.getElementById('newborns-menu').style.display = 'block';
+        document.getElementById('boys-menu').style.display = 'none';
+        document.getElementById('girls-menu').style.display = 'none';
+        document.getElementById('main-menu').style.display = 'none';
+        document.getElementById('back-button').style.display = 'block';
+    }
+    function toggleSubcategory(element) {
+        const subcategory = element.querySelector('.subcategory');
+        if (subcategory) {
+            const isVisible = subcategory.style.display === 'block';
+            subcategory.style.display = isVisible ? 'none' : 'block';
+            element.classList.toggle('active', !isVisible);
+        }
+    }
 </script> 

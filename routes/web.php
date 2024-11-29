@@ -51,3 +51,11 @@ Route::get('/boys', function () {
 Route::get('/girls', function () {
     return view('girls.girls');
 });
+
+Route::get('/newborns', function () {
+    return view('kids.newborns');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});

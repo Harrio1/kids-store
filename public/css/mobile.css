@@ -80,6 +80,33 @@
     margin-top: 50px; /* Добавьте отступ сверху, чтобы приветствие не перекрывалось */
 } 
 
+.sidebar-links li.active > ul {
+    display: block;
+}
+
+.sidebar-links li {
+    cursor: pointer;
+    position: relative;
+}
+
+.sidebar-links li::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #333;
+    transform: translateY(-50%);
+    transition: transform 0.3s;
+}
+
+.sidebar-links li.active::after {
+    transform: translateY(-50%) rotate(180deg);
+}
+
 
 
 

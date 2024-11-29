@@ -5,7 +5,6 @@
     <title>Одежда для мальчиков</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/boysstyle.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/mobile.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -21,7 +20,7 @@
                 <h3>Ассортимент</h3>
                 <ul>
                     <li onclick="toggleSubcategory(this)">Зимняя верхняя одежда
-                        <ul>
+                        <ul class="subcategory">
                             <li>Комбинезоны</li>
                             <li>Куртки</li>
                             <li>Пальто, плащи</li>
@@ -29,7 +28,7 @@
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Осенняя верхняя одежда
-                        <ul>
+                        <ul class="subcategory">
                             <li>Комбинезоны</li>
                             <li>Комбинезоны-конверты</li>
                             <li>Утепленные куртки и жилеты</li>
@@ -39,7 +38,7 @@
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Поддева под комбинезоны
-                        <ul>
+                            <ul class="subcategory"  >
                             <li>Первый слой</li>
                             <li>Флисовые куртки</li>
                             <li>Флисовые брюки</li>
@@ -47,20 +46,20 @@
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Головные уборы, шарфы
-                        <ul>
+                        <ul class="subcategory">
                             <li>Шапки весенние</li>
                             <li>Шапки зимние</li>
                             <li>Шарфы, манишки</li>
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Рукавицы, перчатки
-                        <ul>
+                        <ul class="subcategory">
                             <li>Рукавицы</li>
                             <li>Перчатки</li>
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Повседневная одежда
-                        <ul>
+                        <ul class="subcategory"     >
                             <li>Футболки</li>
                             <li>Шорты</li>
                             <li>Брюки</li>
@@ -75,13 +74,13 @@
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Школа и спорт
-                        <ul>
+                        <ul class="subcategory" >
                             <li>Форма</li>
                             <li>Спортивная одежда</li>
                         </ul>
                     </li>
                     <li onclick="toggleSubcategory(this)">Белье, одежда для дома
-                        <ul>
+                        <ul class="subcategory" >
                             <li>Пижамы</li>
                             <li>Халаты</li>
                         </ul>
@@ -121,11 +120,17 @@
                 <div class="product-name">Халат из петельчатого флиса для мальчика</div>
                 <p class="price">1 999 р.</p>
             </div>
-            <div class="product">
+            <div class="product no-animation">
+                <div class="image-container">
+                    <img src="{{ asset('img/boys/1_5.jpg') }}" alt="Пижама" class="default-image">
+                </div>
                 <div class="product-name">Халат из петельчатого флиса для мальчика</div>
                 <p class="price">1 799 р.</p>
             </div>
-            <div class="product">
+            <div class="product no-animation">
+                <div class="image-container">
+                    <img src="{{ asset('img/boys/1_6.jpg') }}" alt="Пижама" class="default-image">
+                </div>
                 <div class="product-name">Пижама для мальчика (джемпер и брюки) из натурального хлопка</div>
                 <p class="price">1 199 р.</p>
             </div>
@@ -136,7 +141,13 @@
 
     <script>
         function toggleSubcategory(element) {
-            element.classList.toggle('active');
+            console.log('Toggle subcategory called');
+            const subcategory = element.querySelector('.subcategory');
+            if (subcategory) {
+                const isVisible = subcategory.style.display === 'block';
+                subcategory.style.display = isVisible ? 'none' : 'block';
+                element.classList.toggle('active', !isVisible);
+            }
         }
     </script>
      @include('layouts.scripts')
