@@ -74,47 +74,47 @@
         <div class="products">
             <div class="product">
                 <div class="image-container">
-                    <img src="{{ asset('img/boys/pijam.jpg') }}" alt="Пижама" class="default-image">
-                    <img src="{{ asset('img/boys/animate-pijam.jpg') }}" alt="Анимация Пижама" class="hover-image">
+                    <img src="{{ asset('img/girls/1_1.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/girls/1_2.jpg') }}" alt="Анимация Пижама" class="hover-image">
                 </div>
-                <div class="product-name">Пижама для мальчика (джемпер и брюки) из натурального хлопка</div>
+                <div class="product-name">Пижама для девочки (футболка и бриджи)</div>
                 <p class="price">1 299 р.</p>
             </div>
             <div class="product">
                 <div class="image-container">
-                    <img src="{{ asset('img/boys/pijam2.jpg') }}" alt="Пижама" class="default-image">
-                    <img src="{{ asset('img/boys/pijam_animat2.jpg') }}" alt="Пижама" class="hover-image">
+                    <img src="{{ asset('img/girls/2_1.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/girls/2_2.jpg') }}" alt="Пижама" class="hover-image">
                 </div>
-                <div class="product-name">Пижама для мальчика - футболка и брюки из натурального хлопка</div>
+                <div class="product-name">Пижама для девочки (футболка и шорты) из натурального хлопка</div>
                 <p class="price">1 399 р.</p>
             </div>
             <div class="product no-animation">
                 <div class="image-container">
-                    <img src="{{ asset('img/boys/1_3.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/girls/3.jpg') }}" alt="Пижама" class="default-image">
                 </div>
-                <div class="product-name">Пижама для мальчика - футболка и брюки из натурального хлопка</div>
-                <p class="price">1 399 р.</p>
+                <div class="product-name">Пижама для девочки (джемпер и лосины) в рубчик</div>
+                <p class="price">1 019 р.</p>
             </div>
             <div class="product no-animation">
                 <div class="image-container">
-                    <img src="{{ asset('img/boys/1_4.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/girls/4.jpg') }}" alt="Пижама" class="default-image">
                 </div>
-                <div class="product-name">Халат из петельчатого флиса для мальчика</div>
-                <p class="price">1 999 р.</p>
+                <div class="product-name">Пижама для девочки - джемпер и бриджи в рубчик</div>
+                <p class="price">899 р.</p>
             </div>
             <div class="product no-animation">
                 <div class="image-container">
-                    <img src="{{ asset('img/boys/1_5.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/girls/5.jpg') }}" alt="Пижама" class="default-image">
                 </div>
-                <div class="product-name">Халат из петельчатого флиса для мальчика</div>
-                <p class="price">1 799 р.</p>
+                <div class="product-name">Пижама для девочки (футболка и брюки)</div>
+                <p class="price">1 216 р.</p>
             </div>
             <div class="product no-animation">
                 <div class="image-container">
-                    <img src="{{ asset('img/boys/1_6.jpg') }}" alt="Пижама" class="default-image">
+                    <img src="{{ asset('img/girls/6.jpg') }}" alt="Пижама" class="default-image">
                 </div>
-                <div class="product-name">Пижама для мальчика (джемпер и брюки) из натурального хлопка</div>
-                <p class="price">1 199 р.</p>
+                <div class="product-name">Пижама для девочки - джемпер и брюки из натурального хлопка</div>
+                <p class="price">1 529 р.</p>
             </div>
         </div>
     </div>
