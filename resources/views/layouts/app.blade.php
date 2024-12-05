@@ -25,26 +25,28 @@
     </div>
 
     <div class="container">
-        <div class="product-grid">
-            <a href="/boys" class="product-item-link">
-                <div class="product-item">
-                    <h3>Одежда из флиса</h3>
-                    <img src="{{ asset('img/FELS1.png') }}" alt="Одежда из флиса">
-                </div>
-            </a>
-            <a href="/boys" class="product-item-link">
-                <div class="product-item">
-                    <h3>Куртки</h3>
-                    <img src="{{ asset('img/Kurtki.png') }}" alt="Куртки">
-                </div>
-            </a>
-            <a href="/girls" class="product-item-link">
-                <div class="product-item">
-                    <h3>Комбинезоны</h3>
-                    <img src="{{ asset('img/Kombinezon.png') }}" alt="Комбинезоны">
-                </div>
-            </a>
-            <a href="/newborns" class="product-item-link">
+        <div class="product-grid-wrapper">
+            <div class="product-grid">
+                <a href="/boys" class="product-item-link">
+                    <div class="product-item">
+                        <h3>Одежда из флиса</h3>
+                        <img src="{{ asset('img/FELS1.png') }}" alt="Одежда из флиса">
+                    </div>
+                </a>
+                <a href="/boys" class="product-item-link">
+                    <div class="product-item">
+                        <h3>Куртки</h3>
+                        <img src="{{ asset('img/Kurtki.png') }}" alt="Куртки">
+                    </div>
+                </a>
+                <a href="/girls" class="product-item-link">
+                    <div class="product-item">
+                        <h3>Комбинезоны</h3>
+                        <img src="{{ asset('img/Kombinezon.png') }}" alt="Комбинезоны">
+                    </div>
+                </a>
+            </div>
+            <a href="/newborns" class="product-item-link everyday-clothing">
                 <div class="product-item">
                     <h3>Повседневная одежда</h3>
                     <img src="{{ asset('img/Everyday.png') }}" alt="Повседневная одежда">

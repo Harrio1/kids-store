@@ -153,16 +153,24 @@ body {
     padding: 20px;
 }
 
+.product-grid-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    min-height: 500px;
+}
+
 .product-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 10px;
 }
 
 .product-item {
-    flex: 1 1 calc(33.333% - 20px);
+    flex: 1 1 calc(25% - 20px);
     max-width: 300px;
     box-sizing: border-box;
     text-align: center;
@@ -170,8 +178,13 @@ body {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    margin: 10px;
+    margin: 5px;
     transition: transform 0.3s, box-shadow 0.3s;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
 }
 
 .product-item:hover {
@@ -182,7 +195,8 @@ body {
 .product-item img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
 .product-item:last-child {
@@ -413,6 +427,13 @@ body {
 
 .filter-category ul ul > li {
     font-size: 0.9em;
+}
+
+.everyday-clothing {
+    order: 1;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
 }
 
 
