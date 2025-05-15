@@ -14,7 +14,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('parent')->orderBy('sort_order')->paginate(20);
+        // Получаем только корневые категории с их подкатегориями
+        $categories = Category::with('children')
+            ->whereNull('parent_id')
+            ->orderBy('sort_order')
+            ->get();
+            
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -34,31 +39,26 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:categories',
+            'slug' => 'required|string|max:255|unique:categories',
             'description' => 'nullable|string',
             'parent_id' => 'nullable|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'sort_order' => 'nullable|integer',
-            'is_active' => 'nullable|boolean',
+            'sort_order' => 'nullable|integer|min:0',
+            'is_active' => 'boolean'
         ]);
 
         $data = $request->all();
-        
-        // Generate slug if not provided
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name']);
-        }
-        
-        // Handle image upload
+        $data['is_active'] = $request->has('is_active');
+
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('categories', 'public');
-            $data['image'] = $imagePath;
+            $data['image'] = $request->file('image')->store('categories', 'public');
         }
-        
+
         Category::create($data);
-        
-        return redirect()->route('admin.categories.index')
-                         ->with('success', 'Категория успешно создана.');
+
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Категория успешно создана');
     }
 
     /**
@@ -66,8 +66,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $products = $category->products()->paginate(12);
-        return view('categories.show', compact('category', 'products'));
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
@@ -87,7 +86,13 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $categories = Category::where('id', '!=', $category->id)->get();
+        $categories = Category::where('id', '!=', $category->id)
+            ->where(function($query) use ($category) {
+                $query->whereNull('parent_id')
+                    ->orWhere('parent_id', '!=', $category->id);
+            })
+            ->get();
+            
         return view('admin.categories.edit', compact('category', 'categories'));
     }
 
@@ -98,36 +103,29 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:categories,slug,' . $category->id,
+            'slug' => 'required|string|max:255|unique:categories,slug,' . $category->id,
             'description' => 'nullable|string',
             'parent_id' => 'nullable|exists:categories,id',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'sort_order' => 'nullable|integer',
-            'is_active' => 'nullable|boolean',
+            'sort_order' => 'nullable|integer|min:0',
+            'is_active' => 'boolean'
         ]);
 
         $data = $request->all();
-        
-        // Generate slug if not provided
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name']);
-        }
-        
-        // Handle image upload
+        $data['is_active'] = $request->has('is_active');
+
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($category->image && Storage::disk('public')->exists($category->image)) {
+            if ($category->image) {
                 Storage::disk('public')->delete($category->image);
             }
-            
-            $imagePath = $request->file('image')->store('categories', 'public');
-            $data['image'] = $imagePath;
+            $data['image'] = $request->file('image')->store('categories', 'public');
         }
-        
+
         $category->update($data);
-        
-        return redirect()->route('admin.categories.index')
-                         ->with('success', 'Категория успешно обновлена.');
+
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Категория успешно обновлена');
     }
 
     /**
@@ -135,14 +133,14 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        // Delete image if exists
-        if ($category->image && Storage::disk('public')->exists($category->image)) {
+        if ($category->image) {
             Storage::disk('public')->delete($category->image);
         }
         
         $category->delete();
-        
-        return redirect()->route('admin.categories.index')
-                         ->with('success', 'Категория успешно удалена.');
+
+        return redirect()
+            ->route('admin.categories.index')
+            ->with('success', 'Категория успешно удалена');
     }
 }

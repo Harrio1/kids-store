@@ -2719,14 +2719,6 @@ td span.badge-warning {
     justify-content: center !important;
 }
 
-/* Очистка любых хардкодных стилей для блоков иконок */
-[data-theme="dark"] [style*="background"],
-[data-theme="dark"] [style*="background-color"],
-[data-theme="dark"] [class*="bg-"] {
-    background-color: transparent !important;
-    background: none !important;
-    box-shadow: none !important;
-}
 
 /* Особое исправление для фона вокруг иконок, как на скриншоте */
 [data-theme="dark"] i.fab + span, 
@@ -2979,6 +2971,290 @@ footer .social-icons {
 .footer-content .social-icons a:first-child {
     padding-left: 0 !important;
     margin-left: 0 !important;
+}
+
+/* Fix highlighting on hover in dark theme */
+[data-theme="dark"] a:hover,
+[data-theme="dark"] button:hover,
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-item:hover,
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .list-group-item-action:hover,
+[data-theme="dark"] li:hover,
+[data-theme="dark"] .navbar-nav .nav-link:hover {
+    color: #f0f0f0 !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: #444 !important;
+}
+
+/* Ensure links and buttons don't turn orange on hover */
+[data-theme="dark"] a:hover:not(.btn),
+[data-theme="dark"] a:hover:not(.btn) * {
+    color: #f0f0f0 !important;
+    text-decoration: none;
+}
+
+/* Specific overrides for any elements that might still get orange hover */
+[data-theme="dark"] .nav-links a:hover,
+[data-theme="dark"] .dropdown-content a:hover,
+[data-theme="dark"] .sidebar-links li:hover,
+[data-theme="dark"] .sidebar-links li a:hover,
+[data-theme="dark"] .column ul li a:hover,
+[data-theme="dark"] .navbar-nav a:hover,
+[data-theme="dark"] .footer-content a:hover {
+    color: #f0f0f0 !important;
+}
+
+/* Fix primary-color hover effects */
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: #e6c200 !important;
+    border-color: #e6c200 !important;
+    color: #222 !important;
+}
+
+/* Protect social icons from orange hover */
+[data-theme="dark"] .social-icons a:hover i,
+[data-theme="dark"] .footer-content a:hover i {
+    color: #fff !important;
+}
+
+/* Стили для подкатегорий в админской панели */
+.category-tree {
+    list-style: none;
+    padding-left: 0;
+}
+
+.category-tree ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.category-item {
+    margin: 5px 0;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+[data-theme="dark"] .category-item {
+    background-color: #2d3436;
+    border-color: #444;
+}
+
+.category-item .category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-item .category-title {
+    font-weight: 500;
+    margin: 0;
+}
+
+.category-item .category-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.subcategory {
+    margin-left: 20px;
+    border-left: 2px solid #ddd;
+    padding-left: 15px;
+}
+
+[data-theme="dark"] .subcategory {
+    border-left-color: #444;
+}
+
+.category-level-1 { margin-left: 0; }
+.category-level-2 { margin-left: 20px; }
+.category-level-3 { margin-left: 40px; }
+.category-level-4 { margin-left: 60px; }
+.category-level-5 { margin-left: 80px; }
+
+/* Стили для кнопок управления категориями */
+.category-actions .btn {
+    padding: 4px 8px;
+    font-size: 0.875rem;
+}
+
+.category-actions .btn-add-subcategory {
+    background-color: #28a745;
+    color: white;
+}
+
+.category-actions .btn-edit {
+    background-color: #007bff;
+    color: white;
+}
+
+.category-actions .btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+[data-theme="dark"] .category-actions .btn-add-subcategory {
+    background-color: #28a745;
+    color: white;
+}
+
+[data-theme="dark"] .category-actions .btn-edit {
+    background-color: #007bff;
+    color: white;
+}
+
+[data-theme="dark"] .category-actions .btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Стили для модального окна добавления/редактирования категории */
+.category-modal .form-group {
+    margin-bottom: 1rem;
+}
+
+.category-modal .parent-category-select {
+    margin-bottom: 1rem;
+}
+
+/* Стили для индикатора уровня категории */
+.category-level-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 0.875rem;
+}
+
+[data-theme="dark"] .category-level-indicator {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Стили для перетаскивания категорий */
+.category-item.dragging {
+    opacity: 0.5;
+    background-color: #f8f9fa;
+}
+
+[data-theme="dark"] .category-item.dragging {
+    background-color: #444;
+}
+
+.category-item.drag-over {
+    border: 2px dashed #007bff;
+}
+
+[data-theme="dark"] .category-item.drag-over {
+    border-color: #007bff;
+}
+
+/* Стили для кнопки сворачивания/разворачивания подкатегорий */
+.category-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+[data-theme="dark"] .category-toggle {
+    color: #adb5bd;
+}
+
+.category-toggle:hover {
+    color: #007bff;
+}
+
+[data-theme="dark"] .category-toggle:hover {
+    color: #007bff;
+}
+
+/* Стили для иконок в категориях */
+.category-icon {
+    margin-right: 8px;
+    color: #6c757d;
+}
+
+[data-theme="dark"] .category-icon {
+    color: #adb5bd;
+}
+
+/* Стили для счетчика товаров в категории */
+.category-count {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-left: 8px;
+}
+
+[data-theme="dark"] .category-count {
+    color: #adb5bd;
+}
+
+/* Стили для пустого состояния */
+.no-categories {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+
+[data-theme="dark"] .no-categories {
+    color: #adb5bd;
+}
+
+/* Стили для анимации при добавлении/удалении категорий */
+.category-item {
+    transition: all 0.3s ease;
+}
+
+.category-item.removing {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.category-item.adding {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* Стили для подсказок при наведении */
+.category-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.category-tooltip .tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.category-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+[data-theme="dark"] .category-tooltip .tooltip-text {
+    background-color: #444;
+    color: #fff;
 }
 
 

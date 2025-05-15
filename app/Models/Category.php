@@ -34,6 +34,7 @@ class Category extends Model
      */
     protected $casts = [
         'is_active' => 'boolean',
+        'sort_order' => 'integer'
     ];
     
     /**
@@ -94,5 +95,47 @@ class Category extends Model
     public function hasChildren(): bool
     {
         return $this->children()->count() > 0;
+    }
+
+    public function getLevelAttribute(): int
+    {
+        $level = 0;
+        $category = $this;
+        
+        while ($category->parent) {
+            $level++;
+            $category = $category->parent;
+        }
+        
+        return $level;
+    }
+
+    public function getAllChildren(): HasMany
+    {
+        return $this->children()->with('allChildren');
+    }
+
+    public function getAllChildrenIds(): array
+    {
+        $ids = [$this->id];
+        
+        foreach ($this->children as $child) {
+            $ids = array_merge($ids, $child->getAllChildrenIds());
+        }
+        
+        return $ids;
+    }
+
+    public function getFullPath(): string
+    {
+        $path = [$this->name];
+        $category = $this;
+        
+        while ($category->parent) {
+            $category = $category->parent;
+            array_unshift($path, $category->name);
+        }
+        
+        return implode(' > ', $path);
     }
 }
