@@ -1,137 +1,167 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Одежда для девочек</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/boysstyle.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    @include('layouts.navbar')
-    
-    @include('layouts.mobile_sidebar')
+@extends('layouts.app')
 
-    <h1>Одежда для девочек</h1>
+@section('content')
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-light py-2">
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Для девочек</li>
+        </ol>
+    </nav>
 
-    <div class="container">
-        <div class="filters">
-            <div class="filter-category">
-                <h3>Ассортимент</h3>
-                <ul>
-                    <li onclick="toggleSubcategory(this)">Зимняя верхняя одежда
-                        <ul class="subcategory" >
-                            <li>Комбинезоны</li>
-                            <li>Куртки</li>
-                            <li>Пальто, плащи</li>
-                            <li>Брюки</li>
-                        </ul>
-                    </li>
-                    <li onclick="toggleSubcategory(this)">Осенняя верхняя одежда
-                        <ul class="subcategory" >
-                            <li>Комбинезоны</li>
-                            <li>Куртки</li>
-                            <li>Пальто, плащи</li>
-                            <li>Брюки</li>
-                        </ul>
-                    </li>
-                    <li onclick="toggleSubcategory(this)">Платья и юбки
-                        <ul class="subcategory" >
-                            <li>Платья</li>
-                            <li>Юбки</li>
-                        </ul>
-                    </li>
-                    <li onclick="toggleSubcategory(this)">Блузки и рубашки
-                        <ul class="subcategory" >
-                            <li>Блузки</li>
-                            <li>Рубашки</li>
-                        </ul>
-                    </li>
-                    <li onclick="toggleSubcategory(this)">Повседневная одежда
-                        <ul class="subcategory" >
-                            <li>Футболки</li>
-                            <li>Шорты</li>
-                            <li>Брюки</li>
-                            <li>Джинсы</li>
-                        </ul>
-                    </li>
-                    <li onclick="toggleSubcategory(this)">Школа и спорт
-                        <ul class="subcategory" >
-                            <li>Форма</li>
-                            <li>Спортивная одежда</li>
-                        </ul>
-                    </li>
-                    <li onclick="toggleSubcategory(this)">Белье, одежда для дома
-                        <ul class="subcategory">
-                            <li>Пижамы</li>
-                            <li>Халаты</li>
-                        </ul>
-                    </li>
-                </ul>
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Категории</h5>
+                </div>
+                <div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Все категории
+                        <span class="badge badge-primary badge-pill">{{ count($products) }}</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Зимняя одежда
+                        <span class="badge badge-primary badge-pill">14</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Платья, сарафаны
+                        <span class="badge badge-primary badge-pill">9</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Повседневная одежда
+                        <span class="badge badge-primary badge-pill">17</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Футболки
+                        <span class="badge badge-primary badge-pill">6</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Юбки
+                        <span class="badge badge-primary badge-pill">8</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        Комбинезоны
+                        <span class="badge badge-primary badge-pill">5</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Фильтр</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="mb-3">Цена</h6>
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="От">
+                        </div>
+                        <div class="col">
+                            <input type="number" class="form-control" placeholder="До">
+                        </div>
+                    </div>
+                    
+                    <h6 class="mb-3 mt-4">Размер</h6>
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        @foreach([62, 68, 74, 80, 86, 92, 98, 104, 110, 116, 122, 128] as $size)
+                        <label class="btn btn-outline-secondary btn-sm mr-2 mb-2">
+                            <input type="checkbox" autocomplete="off"> {{ $size }}
+                        </label>
+                        @endforeach
+                    </div>
+                    
+                    <button class="btn btn-primary btn-block mt-4">Применить</button>
+                </div>
             </div>
         </div>
 
-        <div class="products">
-            <div class="product">
-                <div class="image-container">
-                    <img src="{{ asset('img/girls/1_1.jpg') }}" alt="Пижама" class="default-image">
-                    <img src="{{ asset('img/girls/1_2.jpg') }}" alt="Анимация Пижама" class="hover-image">
+        <div class="col-lg-9">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="mb-0">Одежда для девочек</h1>
+                <div class="form-inline">
+                    <label class="mr-2">Сортировать:</label>
+                    <select class="form-control">
+                        <option>По популярности</option>
+                        <option>Сначала дешевые</option>
+                        <option>Сначала дорогие</option>
+                        <option>По названию (А-Я)</option>
+                    </select>
                 </div>
-                <div class="product-name">Пижама для девочки (футболка и бриджи)</div>
-                <p class="price">1 299 р.</p>
             </div>
-            <div class="product">
-                <div class="image-container">
-                    <img src="{{ asset('img/girls/2_1.jpg') }}" alt="Пижама" class="default-image">
-                    <img src="{{ asset('img/girls/2_2.jpg') }}" alt="Пижама" class="hover-image">
+
+            <div class="banner mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <h4 class="mb-2">Скидка 15% на всю коллекцию для девочек</h4>
+                        <p class="mb-0">Используйте промокод GIRLS2025 при оформлении заказа</p>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <button class="btn btn-light">Подробнее</button>
+                    </div>
                 </div>
-                <div class="product-name">Пижама для девочки (футболка и шорты) из натурального хлопка</div>
-                <p class="price">1 399 р.</p>
             </div>
-            <div class="product no-animation">
-                <div class="image-container">
-                    <img src="{{ asset('img/girls/3.jpg') }}" alt="Пижама" class="default-image">
-                </div>
-                <div class="product-name">Пижама для девочки (джемпер и лосины) в рубчик</div>
-                <p class="price">1 019 р.</p>
+
+            <div class="row">
+                @if(count($products) > 0)
+                    @foreach($products as $product)
+                        <div class="col-md-4 mb-4">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    @if($product->isOnSale())
+                                        <div class="sale-badge">-{{ $product->getDiscountPercentage() }}%</div>
+                                    @endif
+                                    @if($product->created_at >= now()->subDays(7))
+                                        <div class="new-badge">Новинка</div>
+                                    @endif
+                                    <a href="{{ route('products.show', $product->id) }}">
+                                        @if($product->image)
+                                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                                        @else
+                                            <img src="{{ asset('img/no-image.png') }}" alt="Нет изображения">
+                                        @endif
+                                    </a>
+                                </div>
+                                <div class="product-info">
+                                    <div class="product-title">
+                                        <a href="{{ route('products.show', $product->id) }}" class="text-dark text-decoration-none">
+                                            {{ $product->name }}
+                                        </a>
+                                    </div>
+                                    <div class="product-price mb-2">
+                                        @if($product->isOnSale())
+                                            <span class="old-price">{{ number_format($product->price, 0, '.', ' ') }} ₽</span>
+                                            <span class="discount-price">{{ number_format($product->sale_price, 0, '.', ' ') }} ₽</span>
+                                        @else
+                                            <span>{{ number_format($product->price, 0, '.', ' ') }} ₽</span>
+                                        @endif
+                                    </div>
+                                    <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-primary">Подробнее</a>
+                                    <form action="{{ route('cart.add', $product->id) }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="quantity" value="1">
+                                        <input type="hidden" name="size" value="80">
+                                        <button type="submit" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-12">
+                        <div class="alert alert-info">
+                            Товары для девочек не найдены.
+                        </div>
+                    </div>
+                @endif
             </div>
-            <div class="product no-animation">
-                <div class="image-container">
-                    <img src="{{ asset('img/girls/4.jpg') }}" alt="Пижама" class="default-image">
-                </div>
-                <div class="product-name">Пижама для девочки - джемпер и бриджи в рубчик</div>
-                <p class="price">899 р.</p>
-            </div>
-            <div class="product no-animation">
-                <div class="image-container">
-                    <img src="{{ asset('img/girls/5.jpg') }}" alt="Пижама" class="default-image">
-                </div>
-                <div class="product-name">Пижама для девочки (футболка и брюки)</div>
-                <p class="price">1 216 р.</p>
-            </div>
-            <div class="product no-animation">
-                <div class="image-container">
-                    <img src="{{ asset('img/girls/6.jpg') }}" alt="Пижама" class="default-image">
-                </div>
-                <div class="product-name">Пижама для девочки - джемпер и брюки из натурального хлопка</div>
-                <p class="price">1 529 р.</p>
+
+            <div class="d-flex justify-content-center mt-4">
+                {{ $products->links() ?? '' }}
             </div>
         </div>
     </div>
-
-    @include('layouts.footer')
-
-    <script>
-        function toggleSubcategory(element) {
-            console.log('Toggle subcategory called');
-            const subcategory = element.querySelector('.subcategory');
-            if (subcategory) {
-                const isVisible = subcategory.style.display === 'block';
-                subcategory.style.display = isVisible ? 'none' : 'block';
-                element.classList.toggle('active', !isVisible);
-            }
-        }
-    </script>
-     @include('layouts.scripts')
-</body>
-</html>
+</div>
+@endsection

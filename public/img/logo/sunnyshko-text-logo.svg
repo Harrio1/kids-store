@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="60" viewBox="0 0 200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Sun icon -->
+  <circle cx="30" cy="30" r="20" fill="url(#sun-gradient)"/>
+  
+  <!-- Simple rays -->
+  <path d="M30 5V10" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M30 50V55" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M5 30H10" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M50 30H55" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M13 13L17 17" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M43 43L47 47" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M13 47L17 43" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  <path d="M43 17L47 13" stroke="#FFD700" stroke-width="3" stroke-linecap="round"/>
+  
+  <!-- Simple face -->
+  <circle cx="24" cy="26" r="3" fill="#FFFFFF"/>
+  <circle cx="36" cy="26" r="3" fill="#FFFFFF"/>
+  <path d="M24 36C24 36 26 40 30 40C34 40 36 36 36 36" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Text "Солнышко" -->
+  <text x="65" y="38" font-family="Comfortaa, Arial, sans-serif" font-size="24" font-weight="700" fill="url(#text-gradient)">
+    Солнышко
+  </text>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="sun-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF9F43"/>
+    </linearGradient>
+    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF9F43"/>
+      <stop offset="100%" stop-color="#FF6B6B"/>
+    </linearGradient>
+  </defs>
+</svg> 

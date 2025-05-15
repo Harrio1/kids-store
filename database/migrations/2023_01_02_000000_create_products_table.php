@@ -15,9 +15,17 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('sku')->nullable()->unique();
             $table->text('description');
             $table->decimal('price', 8, 2);
-            $table->string('image');
+            $table->decimal('sale_price', 8, 2)->nullable();
+            $table->string('image')->nullable();
+            $table->json('gallery')->nullable();
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
+            $table->string('category')->nullable(); // Поле для обратной совместимости (boys, girls, newborns)
+            $table->boolean('is_featured')->default(false);
+            $table->boolean('is_active')->default(true);
+            $table->integer('stock')->default(0);
             $table->timestamps();
         });
     }

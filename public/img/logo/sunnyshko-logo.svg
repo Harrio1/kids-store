@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main circle (sun) -->
+  <circle cx="256" cy="256" r="160" fill="url(#sun-gradient)"/>
+  
+  <!-- Sun rays -->
+  <g id="rays">
+    <path d="M256 40V90" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M256 422V472" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M40 256H90" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M422 256H472" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M110.1 110.1L145.5 145.5" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M366.5 366.5L401.9 401.9" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M110.1 401.9L145.5 366.5" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+    <path d="M366.5 145.5L401.9 110.1" stroke="#FFD700" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Happy face inside the sun -->
+  <circle cx="200" cy="210" r="20" fill="#FFFFFF"/>
+  <circle cx="312" cy="210" r="20" fill="#FFFFFF"/>
+  <path d="M200 310C200 310 220 340 256 340C292 340 312 310 312 310" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/>
+  
+  <!-- Optional: T-shirt silhouette in the foreground -->
+  <path d="M226 300 L196 360 L316 360 L286 300" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="sun-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF9F43"/>
+    </linearGradient>
+  </defs>
+</svg> 

@@ -4,6 +4,7 @@
     --accent-color: #87CEEB; /* Светло-голубой */
     --text-color: #333;
     --product-bg-color: #E0E0E0; /* Новый цвет для блоков */
+    --icon-space: 8px; /* Унифицированный отступ для иконок */
 }
 
 body {
@@ -31,6 +32,9 @@ body {
     align-items: center;
     background-color: var(--primary-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 70px; /* Ensure consistent height */
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .logo {
@@ -434,6 +438,2547 @@ body {
     width: 100%;
     max-width: 300px;
     margin: 20px auto 0;
+}
+
+/* Improved Navbar Alignment */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav.main-menu {
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.navbar-nav.ml-auto {
+    margin-left: auto;
+}
+
+.navbar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    margin: 0 5px; /* Consistent margin */
+}
+
+.navbar-brand {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-collapse {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Fix for theme toggle button alignment */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#theme-toggle {
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fix for search box alignment */
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+
+/* Fix for dropdown alignment */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    margin-top: 0;
+    border-radius: 0 0 0.25rem 0.25rem;
+    border-top: none;
+}
+
+.mega-dropdown-menu {
+    padding-top: 0.5rem;
+}
+
+/* Ensure even alignment for all navbar elements */
+.navbar-collapse > * {
+    display: flex;
+    align-items: center;
+}
+
+/* Properly align the logo and brand text */
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] {
+    --text-color: #f0f0f0;
+    --navbar-bg: #1a1d21;
+    --body-bg: #222831;
+    --card-bg: #2d3436;
+    --border-color: #444;
+    --dropdown-bg: #2d3436;
+    --dropdown-text: #f0f0f0;
+    --primary-color: #FFD700;
+    --secondary-color: #FFA500;
+}
+
+[data-theme="dark"] .navbar {
+    background-color: #1a1d21;
+    border-color: #444;
+}
+
+[data-theme="dark"] .nav-link, 
+[data-theme="dark"] .navbar-brand, 
+[data-theme="dark"] .brand-text,
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] span,
+[data-theme="dark"] a:not(.btn) {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .card, 
+[data-theme="dark"] .product-item,
+[data-theme="dark"] .modal-content {
+    background-color: #2d3436;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .dropdown-menu,
+[data-theme="dark"] .mega-dropdown-menu {
+    background-color: #2d3436;
+}
+
+[data-theme="dark"] .dropdown-item,
+[data-theme="dark"] .dropdown-header {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .form-control {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .column h3,
+[data-theme="dark"] .column a {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .column ul li a {
+    color: #87CEEB;
+}
+
+[data-theme="dark"] .footer-content {
+    background-color: #1a1d21;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .header-promo {
+    background-color: #2c3e50;
+    border-color: #444;
+}
+
+[data-theme="dark"] .hero {
+    background-color: #2c3e50;
+}
+
+/* Обеспечиваем контрастность для элементов хедера */
+[data-theme="dark"] .promo-item,
+[data-theme="dark"] .promo-icon {
+    color: #f0f0f0;
+}
+
+/* Обеспечение контрастности для кнопок */
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary-color);
+    color: #222;
+}
+
+[data-theme="dark"] .btn-outline-light {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+
+/* Обеспечение контрастности для текста на карточках продуктов */
+[data-theme="dark"] .product-item h3,
+[data-theme="dark"] .product-item .price {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .product-item .price .original-price {
+    color: #aaa;
+}
+
+/* Стили для контрастного отображения дропдаунов в темной теме */
+[data-theme="dark"] .dropdown-content {
+    background-color: #2d3436;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .dropdown-content a,
+[data-theme="dark"] .dropdown-content h3 {
+    color: #f0f0f0;
+}
+
+/* Стили для сайдбара */
+[data-theme="dark"] .sidebar {
+    background-color: #1a1d21;
+}
+
+[data-theme="dark"] .sidebar-links li,
+[data-theme="dark"] .sidebar-links li a {
+    color: #f0f0f0;
+}
+
+/* Улучшение контрастности для каталога */
+[data-theme="dark"] .nav-tabs .nav-link {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .nav-tabs .nav-link.active {
+    background-color: #2c3e50;
+    border-color: #444;
+    color: var(--primary-color);
+}
+
+/* Дополнительная поддержка темной темы для карточек продуктов и категорий */
+
+[data-theme="dark"] .product-card,
+[data-theme="dark"] .category-card {
+    background-color: #2d3436;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .card-title,
+[data-theme="dark"] .card-text,
+[data-theme="dark"] .product-title {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .card-title a,
+[data-theme="dark"] .product-title a {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .category-card a,
+[data-theme="dark"] .product-card a {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .price {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .old-price {
+    color: #aaa;
+}
+
+[data-theme="dark"] .new-price {
+    color: #ff6b6b;
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .main-title,
+[data-theme="dark"] .page-title {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .product-grid-wrapper {
+    background-color: transparent;
+}
+
+[data-theme="dark"] .product-item {
+    background-color: #2d3436;
+}
+
+[data-theme="dark"] .card-img-top.bg-light {
+    background-color: #444 !important;
+}
+
+[data-theme="dark"] .pagination .page-item .page-link {
+    background-color: #2d3436;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: #222;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+    border-color: #54a0ff;
+}
+
+/* Исправление контрастности текста на главной странице */
+[data-theme="dark"] .hero h1,
+[data-theme="dark"] .hero h2,
+[data-theme="dark"] .hero h3,
+[data-theme="dark"] .hero p {
+    color: #fff;
+}
+
+[data-theme="dark"] .btn-primary {
+    color: #222;
+}
+
+/* Исправление для высоконтрастного отображения текста на карточках категорий */
+[data-theme="dark"] .category-title {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .hero-banner {
+    background-color: #2c3e50;
+}
+
+/* Улучшенная поддержка темной темы для навигационного меню */
+[data-theme="dark"] .navbar {
+    background-color: #1a1d21;
+    border-color: #444;
+}
+
+[data-theme="dark"] .navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #444;
+}
+
+[data-theme="dark"] .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+[data-theme="dark"] .dropdown-toggle::after {
+    border-top-color: #f0f0f0;
+}
+
+[data-theme="dark"] .header-promo {
+    background-color: #2c3e50;
+    border-color: #444;
+}
+
+[data-theme="dark"] .menu-featured-content {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+}
+
+[data-theme="dark"] .btn-search {
+    background-color: var(--primary-color);
+    color: #222;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .badge-danger {
+    background-color: #ff6b6b;
+}
+
+[data-theme="dark"] .user-dropdown {
+    background-color: #2d3436;
+    border-color: #444;
+}
+
+[data-theme="dark"] .dropdown-divider {
+    border-color: #444;
+}
+
+/* Фиксация проблем с изображениями в навигации */
+[data-theme="dark"] .navbar-brand img {
+    filter: brightness(1.2);
+}
+
+/* Улучшение контрастности для кнопки переключения темы */
+[data-theme="dark"] #theme-toggle {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] #theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Стили для страницы категории в темной теме */
+[data-theme="dark"] .page-title,
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2 {
+    color: #f0f0f0;
+}
+
+/* Карточки и фильтры на странице категории */
+[data-theme="dark"] .card-header, 
+[data-theme="dark"] .filter-card,
+[data-theme="dark"] .sorting-card {
+    background-color: #2d3436;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .filter-title,
+[data-theme="dark"] .category-title,
+[data-theme="dark"] .filter-option,
+[data-theme="dark"] .filter-label,
+[data-theme="dark"] .filter-text {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .custom-select {
+    background-color: #2c3e50;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .custom-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Стили для кнопки применения фильтра */
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #222;
+}
+
+[data-theme="dark"] .btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Стили для списка категорий в сайдбаре */
+[data-theme="dark"] .category-list {
+    background-color: #1a1d21;
+    border-color: #444;
+}
+
+[data-theme="dark"] .category-list .list-group-item {
+    background-color: #2d3436;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .category-list .badge {
+    background-color: #444;
+    color: #f0f0f0;
+}
+
+/* Цены и скидки */
+[data-theme="dark"] .price-range-label {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .price-old {
+    color: #aaa;
+}
+
+[data-theme="dark"] .price-new {
+    color: #ff6b6b;
+}
+
+/* Стили для размерной сетки */
+[data-theme="dark"] .size-btn,
+[data-theme="dark"] .filter-btn {
+    background-color: #2c3e50;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .size-btn:hover,
+[data-theme="dark"] .size-btn.active,
+[data-theme="dark"] .filter-btn:hover,
+[data-theme="dark"] .filter-btn.active {
+    background-color: var(--primary-color);
+    color: #222;
+}
+
+/* Стили для промо-баннера */
+[data-theme="dark"] .promo-banner {
+    background-color: #2c3e50;
+    border-color: #444;
+}
+
+[data-theme="dark"] .promo-text,
+[data-theme="dark"] .promo-code {
+    color: #f0f0f0;
+}
+
+/* Стили для бейджей "Новинка" и "Скидка" */
+[data-theme="dark"] .badge-new {
+    background-color: #54a0ff;
+    color: #fff;
+}
+
+[data-theme="dark"] .badge-sale {
+    background-color: #ff6b6b;
+    color: #fff;
+}
+
+/* Стили для боковой панели с категориями в темной теме */
+[data-theme="dark"] .sidebar-categories {
+    background-color: #1a1d21;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .sidebar-categories h2,
+[data-theme="dark"] .sidebar-categories h3 {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .categories-header,
+[data-theme="dark"] .filter-header {
+    background-color: #0078D4;
+    color: white;
+}
+
+[data-theme="dark"] .category-item {
+    background-color: #2c3e50;
+    border-color: #3c546b;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .category-item:hover {
+    background-color: #34495e;
+}
+
+[data-theme="dark"] .category-badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #f0f0f0;
+}
+
+/* Стили для фильтра товаров */
+[data-theme="dark"] .filter-container {
+    background-color: #1a1d21;
+    border-color: #444;
+}
+
+[data-theme="dark"] .filter-section {
+    border-color: #444;
+}
+
+[data-theme="dark"] .filter-label {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .input-range {
+    background-color: #2c3e50;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+/* Стили для карточки товара на странице категории */
+[data-theme="dark"] .product-card-category {
+    background-color: #2d3436;
+    border-color: #444;
+}
+
+[data-theme="dark"] .product-name,
+[data-theme="dark"] .product-price {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .price-original {
+    color: #aaa;
+    text-decoration: line-through;
+}
+
+[data-theme="dark"] .price-discounted {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+/* Улучшение видимости баннера со скидкой */
+[data-theme="dark"] .discount-banner {
+    background-color: #f9a826;
+    color: #222;
+    border-color: #f9a826;
+}
+
+[data-theme="dark"] .discount-code {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #222;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для полей ввода цены в фильтре */
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="number"] {
+    background-color: #2c3e50;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] input[type="text"]:focus,
+[data-theme="dark"] input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+}
+
+/* Стили для заголовка "Категории" */
+[data-theme="dark"] .sidebar-title {
+    background-color: #0078D4;
+    color: white;
+    border-color: #0078D4;
+}
+
+/* Стили для заголовка "Фильтр" */
+[data-theme="dark"] .filter-title {
+    background-color: #0078D4;
+    color: white;
+    border-color: #0078D4;
+}
+
+/* Кнопки размеров в фильтре */
+[data-theme="dark"] .size-button {
+    background-color: #2c3e50;
+    border-color: #444;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .size-button:hover,
+[data-theme="dark"] .size-button.active {
+    background-color: var(--primary-color);
+    color: #222;
+    border-color: var(--primary-color);
+}
+
+/* Стили для кнопки "Применить" в фильтре */
+[data-theme="dark"] .apply-filter-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #222;
+}
+
+[data-theme="dark"] .apply-filter-btn:hover {
+    background-color: #e6c200;
+    border-color: #e6c200;
+}
+
+/* Стили для фона основного контента */
+[data-theme="dark"] .content-wrapper,
+[data-theme="dark"] .main-content {
+    background-color: #222831;
+    color: #f0f0f0;
+}
+
+/* Стили для заголовка категории */
+[data-theme="dark"] .category-heading {
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+/* Специальные стили для страницы мальчиков в темной теме */
+[data-theme="dark"] .breadcrumb {
+    background-color: #2c3e50 !important;
+    border-color: #444 !important;
+}
+
+[data-theme="dark"] .breadcrumb-item {
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .breadcrumb-item a {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .breadcrumb-item + .breadcrumb-item::before {
+    color: #aaa !important;
+}
+
+[data-theme="dark"] .breadcrumb-item.active {
+    color: #f0f0f0 !important;
+}
+
+/* Улучшенная контрастность для категорий */
+[data-theme="dark"] .bg-primary {
+    background-color: #0078D4 !important;
+}
+
+[data-theme="dark"] .list-group-item-action {
+    background-color: #2d3436 !important;
+    border-color: #444 !important;
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .list-group-item-action:hover,
+[data-theme="dark"] .list-group-item-action:focus {
+    background-color: #34495e !important;
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .badge-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Улучшение видимости текста и формы фильтра */
+[data-theme="dark"] .form-control {
+    background-color: #2c3e50 !important;
+    border-color: #444 !important;
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] select.form-control option {
+    background-color: #2c3e50 !important;
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] label {
+    color: #f0f0f0 !important;
+}
+
+/* Улучшение контрастности для кнопок размеров */
+[data-theme="dark"] .btn-outline-secondary {
+    border-color: #6c757d !important;
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary:hover,
+[data-theme="dark"] .btn-outline-secondary:focus,
+[data-theme="dark"] .btn-outline-secondary.active {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #222 !important;
+}
+
+/* Улучшение видимости баннера со скидкой */
+[data-theme="dark"] .banner {
+    background-color: #2c3e50 !important;
+    border: 1px solid #444 !important;
+    padding: 15px !important;
+    border-radius: 5px !important;
+}
+
+[data-theme="dark"] .banner h4,
+[data-theme="dark"] .banner p {
+    color: #f0f0f0 !important;
+}
+
+/* Улучшение видимости карточек товаров */
+[data-theme="dark"] .product-card {
+    background-color: #2d3436 !important;
+    border-color: #444 !important;
+}
+
+[data-theme="dark"] .product-info {
+    padding: 15px !important;
+}
+
+[data-theme="dark"] .product-title a {
+    color: #f0f0f0 !important;
+    font-weight: 500 !important;
+}
+
+[data-theme="dark"] .product-price span {
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .old-price {
+    color: #aaa !important;
+    text-decoration: line-through !important;
+}
+
+[data-theme="dark"] .discount-price {
+    color: #ff6b6b !important;
+    font-weight: bold !important;
+}
+
+/* Улучшение видимости для пагинации */
+[data-theme="dark"] .pagination {
+    margin-top: 20px !important;
+}
+
+[data-theme="dark"] .page-link {
+    background-color: #2c3e50 !important;
+    border-color: #444 !important;
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .page-item.active .page-link {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #222 !important;
+}
+
+[data-theme="dark"] .page-item.disabled .page-link {
+    background-color: #343a40 !important;
+    border-color: #444 !important;
+    color: #6c757d !important;
+}
+
+/* Более яркие бейджи для лучшей видимости */
+[data-theme="dark"] .sale-badge {
+    background-color: #ff6b6b !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 5px 10px !important;
+    border-radius: 3px !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    z-index: 2 !important;
+}
+
+[data-theme="dark"] .new-badge {
+    background-color: #54a0ff !important;
+    color: white !important;
+    font-weight: bold !important;
+    padding: 5px 10px !important;
+    border-radius: 3px !important;
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    z-index: 2 !important;
+}
+
+/* Fix feature box text contrast in dark theme */
+[data-theme="dark"] .feature-box {
+    background-color: #2d3436;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .feature-box p {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .feature-box h4 {
+    color: #f0f0f0;
+}
+
+/* Fix countdown label contrast in dark theme */
+[data-theme="dark"] .countdown-item {
+    background-color: #2d3436;
+}
+
+[data-theme="dark"] .countdown-label {
+    color: #e0e0e0;
+}
+
+/* Fix features banner background in dark theme */
+[data-theme="dark"] .features-banner {
+    background-color: #222831;
+    border-color: #444;
+}
+
+/* Fix subscription box colors in dark theme */
+[data-theme="dark"] .subscription-box {
+    background-color: #2c3e50;
+    border-color: var(--primary-color);
+}
+
+/* Fix collection overlay for better visibility */
+[data-theme="dark"] .collection-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
+}
+
+/* Fix brand features section in dark theme */
+[data-theme="dark"] .brand-features {
+    background-color: #2d3436;
+    color: #f0f0f0;
+}
+
+/* Fix custom-checkbox label in dark theme */
+[data-theme="dark"] .custom-control-label {
+    color: #f0f0f0;
+}
+
+/* Add general improved contrast for all section headings */
+[data-theme="dark"] .section-heading,
+[data-theme="dark"] .section-subheading {
+    color: #f0f0f0;
+}
+
+/* Make sure all footer links have proper contrast */
+[data-theme="dark"] .footer-content a {
+    color: #87CEEB;
+}
+
+[data-theme="dark"] .footer-content a:hover {
+    color: var(--primary-color);
+}
+
+/* Enhance contrast for small and muted text */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] small,
+[data-theme="dark"] .small {
+    color: #adb5bd !important;
+}
+
+/* Fix alert contrast in dark theme */
+[data-theme="dark"] .alert-danger {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #f8d7da;
+    border-color: #dc3545;
+}
+
+[data-theme="dark"] .alert-success {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #d4edda;
+    border-color: #28a745;
+}
+
+[data-theme="dark"] .alert-warning {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #fff3cd;
+    border-color: #ffc107;
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: rgba(23, 162, 184, 0.2);
+    color: #d1ecf1;
+    border-color: #17a2b8;
+}
+
+/* Ensure all inputs have proper text contrast */
+[data-theme="dark"] input::placeholder {
+    color: #adb5bd;
+}
+
+/* Fix table text contrast */
+[data-theme="dark"] table {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .table thead th {
+    border-color: #444;
+}
+
+[data-theme="dark"] .table td, 
+[data-theme="dark"] .table th {
+    border-color: #444;
+}
+
+/* Fix blockquote and card text contrast */
+[data-theme="dark"] blockquote {
+    border-left-color: var(--primary-color);
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .card-text {
+    color: #f0f0f0;
+}
+
+/* Fix toast notifications */
+[data-theme="dark"] .toast {
+    background-color: #2d3436;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .toast-header {
+    background-color: #1a1d21;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+/* Fix remaining potential contrast issues in dark theme */
+[data-theme="dark"] .category-count {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .new-price {
+    color: #ff6b6b;
+}
+
+[data-theme="dark"] .product-buttons .btn-outline-secondary {
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .product-buttons .btn-outline-secondary:hover {
+    background-color: var(--primary-color);
+    color: #222;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .category-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .custom-select {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .custom-select option {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] a.forgot-password {
+    color: #87CEEB;
+}
+
+[data-theme="dark"] a.forgot-password:hover {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .invalid-feedback {
+    color: #ff6b6b;
+}
+
+/* Fix contrast for modal footer links */
+[data-theme="dark"] .btn-link {
+    color: #87CEEB;
+}
+
+[data-theme="dark"] .btn-link:hover {
+    color: var(--primary-color);
+}
+
+/* Ensure all buttons have proper contrast */
+[data-theme="dark"] .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: #fff;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Ensure breadcrumbs have proper contrast */
+[data-theme="dark"] .breadcrumb-item + .breadcrumb-item::before {
+    color: #adb5bd;
+}
+
+/* Ensure proper contrast for form validation */
+[data-theme="dark"] .form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+[data-theme="dark"] .form-control.is-valid {
+    border-color: #28a745;
+}
+
+/* Fix font contrast in disabled items */
+[data-theme="dark"] .form-control:disabled,
+[data-theme="dark"] .form-control[readonly] {
+    background-color: #343a40;
+    color: #adb5bd;
+}
+
+[data-theme="dark"] .btn.disabled, 
+[data-theme="dark"] .btn:disabled {
+    opacity: 0.65;
+}
+
+/* Improves visibility of placeholders in dark theme */
+[data-theme="dark"] ::placeholder {
+    color: #adb5bd !important;
+    opacity: 1;
+}
+
+/* Improves visibility for dropdown toggles */
+[data-theme="dark"] .dropdown-toggle {
+    color: #f0f0f0;
+}
+
+/* Fix contrast for highlighted/selected text */
+[data-theme="dark"] ::selection {
+    background-color: var(--primary-color);
+    color: #222;
+}
+
+/* Fix for sale-countdown and timer elements in dark theme */
+[data-theme="dark"] .sale-countdown {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Fix for enhanced cards in dark theme */
+[data-theme="dark"] .category-card.enhanced {
+    background-color: #2d3436;
+}
+
+[data-theme="dark"] .category-card.enhanced:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .category-btn {
+    background: var(--primary-color);
+    color: #222;
+}
+
+[data-theme="dark"] .featured-card {
+    background-color: #2d3436;
+}
+
+[data-theme="dark"] .featured-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure proper contrast for modal close button */
+[data-theme="dark"] .close {
+    color: #f0f0f0;
+    text-shadow: 0 1px 0 #000;
+}
+
+[data-theme="dark"] .close:hover,
+[data-theme="dark"] .close:focus {
+    color: var(--primary-color);
+}
+
+/* Fix for product article text */
+[data-theme="dark"] .product-article {
+    color: #adb5bd;
+}
+
+/* Ensure all footer elements have proper contrast */
+[data-theme="dark"] .footer h4,
+[data-theme="dark"] .footer h5,
+[data-theme="dark"] .footer h6 {
+    color: #fff;
+}
+
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer address {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .footer-links li a {
+    color: #87CEEB;
+}
+
+[data-theme="dark"] .social-icons a {
+    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .social-icons a:hover {
+    background-color: var(--primary-color);
+    color: #222;
+}
+
+/* Make sure all buttons have proper contrast */
+[data-theme="dark"] .btn-success {
+    color: #fff;
+}
+
+[data-theme="dark"] .btn-danger {
+    color: #fff;
+}
+
+[data-theme="dark"] .btn-info {
+    color: #fff;
+}
+
+[data-theme="dark"] .btn-warning {
+    color: #212529;
+}
+
+/* Make all buttons rectangular */
+.btn, 
+.btn-sm, 
+.btn-lg, 
+.btn-primary, 
+.btn-secondary, 
+.btn-outline-primary, 
+.btn-outline-secondary,
+.quantity-minus, 
+.quantity-plus {
+    border-radius: 4px !important;
+}
+
+/* Remove rounded pill style from size buttons */
+.size-selector .btn.rounded-pill,
+.btn-outline-secondary.rounded-pill {
+    border-radius: 4px !important;
+}
+
+/* Improve font visibility in dark theme for product pages */
+[data-theme="dark"] .breadcrumb {
+    background-color: #2c3e50 !important;
+}
+
+[data-theme="dark"] .breadcrumb-item.active {
+    color: #fff !important;
+}
+
+[data-theme="dark"] .breadcrumb-item a {
+    color: #87CEEB !important;
+}
+
+[data-theme="dark"] .product-gallery .img-fluid {
+    border: 1px solid #444;
+}
+
+[data-theme="dark"] .product-info h1,
+[data-theme="dark"] .product-info h3,
+[data-theme="dark"] .product-info h5,
+[data-theme="dark"] .product-info p,
+[data-theme="dark"] .product-info label,
+[data-theme="dark"] .size-selector label {
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .product-sku small,
+[data-theme="dark"] .form-text.text-muted {
+    color: #adb5bd !important;
+}
+
+[data-theme="dark"] .product-delivery-info {
+    background-color: #2d3436 !important;
+    border: 1px solid #444;
+}
+
+[data-theme="dark"] .product-delivery-info span {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .related-products h3 {
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] .saving-amount.text-success {
+    color: #28a745 !important;
+}
+
+[data-theme="dark"] .size-selector .btn-outline-secondary {
+    color: #f0f0f0;
+    border-color: #6c757d;
+}
+
+[data-theme="dark"] .size-selector .btn-outline-secondary.active {
+    background-color: var(--primary-color);
+    color: #222;
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] #quantity {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+/* Ensure all badges are visible in dark theme */
+[data-theme="dark"] .badge-pill.badge-primary,
+[data-theme="dark"] .badge-pill.badge-success,
+[data-theme="dark"] .badge-pill.badge-danger {
+    color: #fff !important;
+}
+
+/* Ensure input group buttons have proper styling */
+[data-theme="dark"] .input-group-prepend .btn,
+[data-theme="dark"] .input-group-append .btn {
+    background-color: #2c3e50;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .input-group-prepend .btn:hover,
+[data-theme="dark"] .input-group-append .btn:hover {
+    background-color: #34495e;
+}
+
+/* Fix colors for primary buttons in dark theme */
+[data-theme="dark"] .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #222;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: #e88f35;
+    border-color: #e88f35;
+}
+
+/* Fix colors for outline buttons in dark theme */
+[data-theme="dark"] .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #222;
+}
+
+/* Fix button border radius for buttons in navbar, forms, and everywhere */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.nav-pills .nav-link,
+.badge-pill {
+    border-radius: 4px !important;
+}
+
+/* Override specific components that might have different border-radius */
+.btn-group-pill .btn,
+.rounded-pill,
+.breadcrumb-item,
+.page-link,
+.form-control,
+.custom-control,
+.input-group-text,
+.dropdown-item,
+.dropdown-toggle,
+.card,
+.modal-content,
+.alert,
+.toast {
+    border-radius: 4px !important;
+}
+
+/* Additional Product Page Improvements for Dark Theme */
+[data-theme="dark"] .bg-light {
+    background-color: #2d3436 !important;
+}
+
+[data-theme="dark"] .text-muted {
+    color: #adb5bd !important;
+}
+
+[data-theme="dark"] .text-primary {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .discount-price {
+    color: #ff6b6b !important;
+}
+
+[data-theme="dark"] .old-price {
+    color: #adb5bd !important;
+}
+
+/* Improve visibility of icons */
+[data-theme="dark"] .text-primary i.fas,
+[data-theme="dark"] .text-primary i.far,
+[data-theme="dark"] .text-primary i.fab {
+    color: var(--primary-color) !important;
+}
+
+/* Ensure all form controls are visible */
+[data-theme="dark"] select,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background-color: #2c3e50 !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+
+/* Override bootstrap text colors for dark theme */
+[data-theme="dark"] .text-dark {
+    color: #f0f0f0 !important;
+}
+
+[data-theme="dark"] .list-group-item {
+    background-color: #2d3436;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+/* Ensure all card components are properly visible */
+[data-theme="dark"] .card {
+    background-color: #2d3436;
+    border-color: #444;
+}
+
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .card-footer {
+    background-color: #1a1d21;
+    border-color: #444;
+}
+
+[data-theme="dark"] .card-body {
+    color: #f0f0f0;
+}
+
+/* Add specific styling for product size selector */
+[data-theme="dark"] .size-selector .btn {
+    margin-bottom: 5px;
+    background-color: transparent;
+}
+
+[data-theme="dark"] .btn-outline-secondary:not(:disabled):not(.disabled).active,
+[data-theme="dark"] .btn-outline-secondary:not(:disabled):not(.disabled):active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #222;
+}
+
+/* Fix badge colors in dark theme */
+[data-theme="dark"] .badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+[data-theme="dark"] .badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+[data-theme="dark"] .badge-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+[data-theme="dark"] .badge-info {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+[data-theme="dark"] .badge-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+/* Отменяем любые эффекты наведения для бейджей */
+tr:hover .badge,
+a:hover .badge,
+button:hover .badge,
+label:hover .badge,
+div:hover .badge {
+    color: inherit !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* Принудительно устанавливаем цвета текста для бейджей при наведении */
+tr:hover .badge-primary,
+a:hover .badge-primary,
+button:hover .badge-primary,
+label:hover .badge-primary,
+div:hover .badge-primary,
+tr:hover .badge-danger, 
+a:hover .badge-danger,
+button:hover .badge-danger,
+label:hover .badge-danger,
+div:hover .badge-danger,
+tr:hover .badge-success,
+a:hover .badge-success,
+button:hover .badge-success,
+label:hover .badge-success,
+div:hover .badge-success,
+tr:hover .badge-info,
+a:hover .badge-info,
+button:hover .badge-info,
+label:hover .badge-info,
+div:hover .badge-info,
+tr:hover .badge-secondary,
+a:hover .badge-secondary,
+button:hover .badge-secondary,
+label:hover .badge-secondary,
+div:hover .badge-secondary {
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+tr:hover .badge-warning,
+a:hover .badge-warning,
+button:hover .badge-warning,
+label:hover .badge-warning,
+div:hover .badge-warning {
+    color: #212529 !important;
+    opacity: 1 !important;
+}
+
+[data-theme="dark"] tr:hover .badge-primary,
+[data-theme="dark"] a:hover .badge-primary,
+[data-theme="dark"] button:hover .badge-primary,
+[data-theme="dark"] label:hover .badge-primary,
+[data-theme="dark"] div:hover .badge-primary,
+[data-theme="dark"] tr:hover .badge-danger, 
+[data-theme="dark"] a:hover .badge-danger,
+[data-theme="dark"] button:hover .badge-danger,
+[data-theme="dark"] label:hover .badge-danger,
+[data-theme="dark"] div:hover .badge-danger,
+[data-theme="dark"] tr:hover .badge-success,
+[data-theme="dark"] a:hover .badge-success,
+[data-theme="dark"] button:hover .badge-success,
+[data-theme="dark"] label:hover .badge-success,
+[data-theme="dark"] div:hover .badge-success,
+[data-theme="dark"] tr:hover .badge-info,
+[data-theme="dark"] a:hover .badge-info,
+[data-theme="dark"] button:hover .badge-info,
+[data-theme="dark"] label:hover .badge-info,
+[data-theme="dark"] div:hover .badge-info,
+[data-theme="dark"] tr:hover .badge-secondary,
+[data-theme="dark"] a:hover .badge-secondary,
+[data-theme="dark"] button:hover .badge-secondary,
+[data-theme="dark"] label:hover .badge-secondary,
+[data-theme="dark"] div:hover .badge-secondary {
+    color: #fff !important;
+    opacity: 1 !important;
+}
+
+/* Еще более строгое форматирование бейджей в админской панели */
+tr td .badge, 
+tr th .badge,
+a .badge,
+button .badge,
+label .badge,
+div .badge {
+    pointer-events: none !important; /* Бейджи не должны реагировать на события наведения */
+}
+
+/* Специальный стиль для бейджей в админке */
+.table td .badge,
+.table th .badge {
+    display: inline-block !important;
+    padding: 0.4em 0.6em !important;
+    font-size: 85% !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: baseline !important;
+    border-radius: 0.25rem !important;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Специфичное правило для бейджей в темном режиме */
+[data-theme="dark"] .table .badge {
+    pointer-events: none !important;
+}
+
+/* Фиксированные цвета бейджей с !important для переопределения всех стилей */
+.table .badge-primary,
+.badge-primary {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+
+.table .badge-danger, 
+.badge-danger {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+.table .badge-success,
+.badge-success {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.table .badge-info,
+.badge-info {
+    background-color: #17a2b8 !important;
+    color: #fff !important;
+}
+
+.table .badge-warning,
+.badge-warning {
+    background-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.table .badge-secondary,
+.badge-secondary {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+/* Защищаем от любых CSS переопределений в темной теме */
+[data-theme="dark"] .table .badge-primary,
+[data-theme="dark"] .badge-primary {
+    background-color: #007bff !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .table .badge-danger,
+[data-theme="dark"] .badge-danger {
+    background-color: #dc3545 !important;
+    color: #fff !important;
+}
+
+[data-theme="dark"] .table .badge-success,
+[data-theme="dark"] .badge-success {
+    background-color: #28a745 !important;
+    color: #fff !important;
+}
+
+/* Improve contrast for info icons */
+[data-theme="dark"] .fa-info-circle {
+    color: #adb5bd;
+}
+
+/* Fix font color for dropdown items in dark theme on hover */
+[data-theme="dark"] .dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: #222 !important; /* Ensure text is dark on hover with light background */
+}
+
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--dropdown-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .dropdown-item {
+    color: var(--dropdown-text);
+}
+
+[data-theme="dark"] .dropdown-divider {
+    border-color: var(--border-color);
+}
+
+/* Fix admin dropdown navigation items */
+[data-theme="dark"] .dropdown-menu a.dropdown-item {
+    color: var(--dropdown-text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Прямое переопределение стилей для бейджей в админке */
+span.badge {
+    display: inline-block !important;
+    padding: 0.4em 0.6em !important;
+    line-height: 1 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: baseline !important;
+    pointer-events: none !important;
+}
+
+/* Принудительный цвет текста для каждого вида бейджа */
+span.badge.badge-primary {
+    color: #fff !important;
+    background-color: #007bff !important;
+}
+
+span.badge.badge-danger {
+    color: #fff !important;
+    background-color: #dc3545 !important;
+}
+
+span.badge.badge-success {
+    color: #fff !important;
+    background-color: #28a745 !important;
+}
+
+span.badge.badge-info {
+    color: #fff !important;
+    background-color: #17a2b8 !important;
+}
+
+span.badge.badge-warning {
+    color: #212529 !important;
+    background-color: #ffc107 !important;
+}
+
+span.badge.badge-secondary {
+    color: #fff !important;
+    background-color: #6c757d !important;
+}
+
+/* Дополнительные стили для темного режима */
+[data-theme="dark"] span.badge.badge-primary {
+    color: #fff !important;
+    background-color: #007bff !important;
+}
+
+[data-theme="dark"] span.badge.badge-danger {
+    color: #fff !important;
+    background-color: #dc3545 !important;
+}
+
+[data-theme="dark"] span.badge.badge-success {
+    color: #fff !important;
+    background-color: #28a745 !important;
+}
+
+[data-theme="dark"] span.badge.badge-info {
+    color: #fff !important;
+    background-color: #17a2b8 !important;
+}
+
+[data-theme="dark"] span.badge.badge-warning {
+    color: #212529 !important;
+    background-color: #ffc107 !important;
+}
+
+[data-theme="dark"] span.badge.badge-secondary {
+    color: #fff !important;
+    background-color: #6c757d !important;
+}
+
+/* Защита от наследования при наведении */
+*:hover span.badge.badge-primary,
+*:hover span.badge.badge-danger,
+*:hover span.badge.badge-success,
+*:hover span.badge.badge-info,
+*:hover span.badge.badge-secondary {
+    color: #fff !important;
+}
+
+*:hover span.badge.badge-warning {
+    color: #212529 !important;
+}
+
+/* Стили для темного режима при наведении */
+[data-theme="dark"] *:hover span.badge.badge-primary,
+[data-theme="dark"] *:hover span.badge.badge-danger,
+[data-theme="dark"] *:hover span.badge.badge-success,
+[data-theme="dark"] *:hover span.badge.badge-info,
+[data-theme="dark"] *:hover span.badge.badge-secondary {
+    color: #fff !important;
+}
+
+[data-theme="dark"] *:hover span.badge.badge-warning {
+    color: #212529 !important;
+}
+
+/* Окончательное решение проблемы с бейджами */
+/* Устанавливаем высший приоритет стилям для бейджей в таблицах */
+.table span.badge,
+tr span.badge,
+td span.badge,
+th span.badge,
+tr td span.badge,
+tr th span.badge {
+    padding: 0.4em 0.6em !important;
+    font-size: 85% !important;
+    font-weight: 700 !important;
+    border-radius: 0.25rem !important;
+    display: inline-block !important;
+    pointer-events: none !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+/* Абсолютное переопределение цветов для всех типов бейджей */
+.table span.badge-primary, tr span.badge-primary, td span.badge-primary {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3) !important;
+}
+
+.table span.badge-danger, tr span.badge-danger, td span.badge-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3) !important;
+}
+
+.table span.badge-success, tr span.badge-success, td span.badge-success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3) !important;
+}
+
+/* Специально для темного режима - переопределяем все возможные стили */
+[data-theme="dark"] .table span.badge-primary,
+[data-theme="dark"] tr span.badge-primary,
+[data-theme="dark"] td span.badge-primary {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) !important;
+}
+
+[data-theme="dark"] .table span.badge-danger,
+[data-theme="dark"] tr span.badge-danger,
+[data-theme="dark"] td span.badge-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) !important;
+}
+
+[data-theme="dark"] .table span.badge-success,
+[data-theme="dark"] tr span.badge-success,
+[data-theme="dark"] td span.badge-success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) !important;
+}
+
+/* Защита от изменений при наведении на любой элемент */
+*:hover .table span.badge-primary,
+*:hover tr span.badge-primary,
+*:hover td span.badge-primary,
+tr:hover span.badge-primary,
+tr:hover td span.badge-primary,
+td:hover span.badge-primary {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3) !important;
+}
+
+*:hover .table span.badge-danger,
+*:hover tr span.badge-danger,
+*:hover td span.badge-danger,
+tr:hover span.badge-danger,
+tr:hover td span.badge-danger,
+td:hover span.badge-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3) !important;
+}
+
+*:hover .table span.badge-success,
+*:hover tr span.badge-success,
+*:hover td span.badge-success,
+tr:hover span.badge-success,
+tr:hover td span.badge-success,
+td:hover span.badge-success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3) !important;
+}
+
+/* И также для темного режима */
+[data-theme="dark"] *:hover .table span.badge-primary,
+[data-theme="dark"] *:hover tr span.badge-primary,
+[data-theme="dark"] *:hover td span.badge-primary,
+[data-theme="dark"] tr:hover span.badge-primary,
+[data-theme="dark"] tr:hover td span.badge-primary,
+[data-theme="dark"] td:hover span.badge-primary {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) !important;
+}
+
+[data-theme="dark"] *:hover .table span.badge-danger,
+[data-theme="dark"] *:hover tr span.badge-danger,
+[data-theme="dark"] *:hover td span.badge-danger,
+[data-theme="dark"] tr:hover span.badge-danger,
+[data-theme="dark"] tr:hover td span.badge-danger,
+[data-theme="dark"] td:hover span.badge-danger {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) !important;
+}
+
+[data-theme="dark"] *:hover .table span.badge-success,
+[data-theme="dark"] *:hover tr span.badge-success,
+[data-theme="dark"] *:hover td span.badge-success,
+[data-theme="dark"] tr:hover span.badge-success,
+[data-theme="dark"] tr:hover td span.badge-success,
+[data-theme="dark"] td:hover span.badge-success {
+    background-color: #28a745 !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.5) !important;
+}
+
+/* Прямая инъекция критических стилей для решения проблемы бейджей */
+.table span.badge,
+tr span.badge,
+td span.badge {
+    --text-color: #fff !important;
+    color: var(--text-color) !important;
+}
+
+.table span.badge-warning,
+tr span.badge-warning,
+td span.badge-warning {
+    --text-color: #212529 !important;
+}
+
+/* Добавляем защиту для hover-состояния всех элементов таблицы */
+.table tr:hover span.badge-primary,
+.table tr:hover span.badge-danger,
+.table tr:hover span.badge-success,
+.table tr:hover span.badge-info,
+.table tr:hover span.badge-secondary {
+    color: white !important;
+}
+
+.table tr:hover span.badge-warning {
+    color: #212529 !important;
+}
+
+/* Особая защита для темного режима */
+[data-theme="dark"] .table tr:hover span.badge-primary,
+[data-theme="dark"] .table tr:hover span.badge-danger,
+[data-theme="dark"] .table tr:hover span.badge-success,
+[data-theme="dark"] .table tr:hover span.badge-info,
+[data-theme="dark"] .table tr:hover span.badge-secondary {
+    color: white !important;
+}
+
+[data-theme="dark"] .table tr:hover span.badge-warning {
+    color: #212529 !important;
+}
+
+/* Полностью блокируем наследование при наведении */
+.table tr:hover,
+.table td:hover {
+    --badge-color-primary: #007bff !important;
+    --badge-color-danger: #dc3545 !important;
+    --badge-color-success: #28a745 !important;
+    --badge-color-info: #17a2b8 !important;
+    --badge-color-warning: #ffc107 !important;
+    --badge-color-secondary: #6c757d !important;
+}
+
+.table tr:hover span.badge-primary,
+.table td:hover span.badge-primary {
+    background-color: var(--badge-color-primary) !important;
+    color: white !important;
+}
+
+.table tr:hover span.badge-danger,
+.table td:hover span.badge-danger {
+    background-color: var(--badge-color-danger) !important;
+    color: white !important;
+}
+
+.table tr:hover span.badge-success,
+.table td:hover span.badge-success {
+    background-color: var(--badge-color-success) !important;
+    color: white !important;
+}
+
+.table tr:hover span.badge-info,
+.table td:hover span.badge-info {
+    background-color: var(--badge-color-info) !important;
+    color: white !important;
+}
+
+.table tr:hover span.badge-warning,
+.table td:hover span.badge-warning {
+    background-color: var(--badge-color-warning) !important;
+    color: #212529 !important;
+}
+
+.table tr:hover span.badge-secondary,
+.table td:hover span.badge-secondary {
+    background-color: var(--badge-color-secondary) !important;
+    color: white !important;
+}
+
+/* Специальное правило для темной темы */
+[data-theme="dark"] .table tr:hover span.badge,
+[data-theme="dark"] .table td:hover span.badge {
+    filter: brightness(1.1) !important;
+}
+
+/* Прямое указание для конкретных видов бейджей */
+.badge-danger[title*="девочек"] {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.badge-primary[title*="мальчиков"] {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+.table tr:hover .badge-danger[title*="девочек"],
+[data-theme="dark"] .table tr:hover .badge-danger[title*="девочек"] {
+    background-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.table tr:hover .badge-primary[title*="мальчиков"],
+[data-theme="dark"] .table tr:hover .badge-primary[title*="мальчиков"] {
+    background-color: #007bff !important;
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .card:hover .card-title,
+[data-theme="dark"] .card:hover .card-text,
+[data-theme="dark"] .card:hover p,
+[data-theme="dark"] .card:hover h5 {
+    color: #f0f0f0 !important;
+}
+
+/* Улучшение контрастности для hover состояний в админской панели */
+[data-theme="dark"] .bg-primary.text-white:hover *,
+[data-theme="dark"] .bg-success.text-white:hover *,
+[data-theme="dark"] .bg-info.text-white:hover * {
+    color: #fff !important;
+}
+
+/* Обеспечение видимости иконок в карточках админской панели */
+[data-theme="dark"] .card .fas,
+[data-theme="dark"] .card .fa-3x,
+[data-theme="dark"] .card .card-body i {
+    color: inherit;
+}
+
+/* Обеспечение контрастности для всех элементов сайта в темной теме */
+[data-theme="dark"] p,
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] span,
+[data-theme="dark"] label,
+[data-theme="dark"] li,
+[data-theme="dark"] a:not(.btn),
+[data-theme="dark"] .text-dark {
+    color: #f0f0f0 !important;
+}
+
+/* Исключения для некоторых случаев, где нужен другой цвет */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .text-secondary {
+    color: #adb5bd !important;
+}
+
+[data-theme="dark"] .badge {
+    color: #fff !important;
+}
+
+/* Обеспечение контрастности при hover */
+[data-theme="dark"] a:hover:not(.btn),
+[data-theme="dark"] a:hover:not(.btn) * {
+    color: var(--primary-color) !important;
+}
+
+/* Улучшенная поддержка таблиц в админской панели */
+[data-theme="dark"] .table,
+[data-theme="dark"] .table th,
+[data-theme="dark"] .table td {
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* Исправление проблем с видимостью при наведении на элементы таблицы */
+[data-theme="dark"] .table tr:hover * {
+    color: #fff !important;
+}
+
+/* Улучшение контрастности карточек в админской панели */
+[data-theme="dark"] .card {
+    background-color: #2d3436;
+    border-color: #444;
+}
+
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .card-footer {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-color: #444;
+}
+
+/* Улучшение видимости информационных модалок */
+[data-theme="dark"] .tooltip-inner,
+[data-theme="dark"] .popover-body,
+[data-theme="dark"] .popover-header {
+    background-color: #2d3436;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+[data-theme="dark"] .bs-tooltip-top .arrow::before,
+[data-theme="dark"] .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+    border-top-color: #2d3436;
+}
+
+[data-theme="dark"] .bs-tooltip-right .arrow::before,
+[data-theme="dark"] .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+    border-right-color: #2d3436;
+}
+
+[data-theme="dark"] .bs-tooltip-bottom .arrow::before,
+[data-theme="dark"] .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+    border-bottom-color: #2d3436;
+}
+
+[data-theme="dark"] .bs-tooltip-left .arrow::before,
+[data-theme="dark"] .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+    border-left-color: #2d3436;
+}
+
+/* Устранение оранжевого наведения в админской панели в темной теме */
+[data-theme="dark"] .list-group-item-action:hover,
+[data-theme="dark"] .list-group-item-action:focus,
+[data-theme="dark"] .admin-sidebar .list-group-item:hover,
+[data-theme="dark"] .admin-nav .nav-link:hover,
+[data-theme="dark"] .admin-menu .nav-item:hover,
+[data-theme="dark"] .admin-menu .nav-link:hover,
+[data-theme="dark"] .admin-panel .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+
+/* Фиксация пунктов админского меню в темной теме */
+[data-theme="dark"] .admin-sidebar .active,
+[data-theme="dark"] .admin-menu .active,
+[data-theme="dark"] .admin-nav .active,
+[data-theme="dark"] .admin-panel .active {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border-color: #444 !important;
+    color: #f0f0f0 !important;
+}
+
+/* Устранение любых оранжевых подсветок в админском меню */
+[data-theme="dark"] .admin-sidebar a:hover,
+[data-theme="dark"] .admin-menu a:hover,
+[data-theme="dark"] .admin-nav a:hover,
+[data-theme="dark"] .admin-panel a:hover {
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+
+/* Переопределение стилей для всех элементов боковой админской панели */
+[data-theme="dark"] .nav-pills .nav-link:hover,
+[data-theme="dark"] .nav-pills .nav-link:focus,
+[data-theme="dark"] .nav-pills .show > .nav-link {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f0f0f0 !important;
+}
+
+/* Дополнительные переопределения для списков в боковой панели */
+[data-theme="dark"] .list-group-item:hover, 
+[data-theme="dark"] .list-group-item:focus,
+[data-theme="dark"] .list-group-item.active {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+    z-index: 1 !important;
+}
+
+/* Специальные правила для раскрывающихся списков в админке */
+[data-theme="dark"] .dropdown-item:hover,
+[data-theme="dark"] .dropdown-item:focus,
+[data-theme="dark"] .dropdown-item.active,
+[data-theme="dark"] .dropdown-menu a:hover,
+[data-theme="dark"] .dropdown-menu a:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f0f0f0 !important;
+}
+
+/* Универсальное решение для всех кликабельных элементов в админке */
+[data-theme="dark"] .sidebar a:hover,
+[data-theme="dark"] .sidebar a:focus,
+[data-theme="dark"] .sidebar .active,
+[data-theme="dark"] .sidebar-item:hover,
+[data-theme="dark"] .sidebar-link:hover,
+[data-theme="dark"] .sidebar-menu a:hover,
+[data-theme="dark"] .side-nav a:hover,
+[data-theme="dark"] .side-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f0f0f0 !important;
+    border-color: #444 !important;
+}
+
+/* Специальное правило для вертикальной навигации, как на скриншоте */
+[data-theme="dark"] .nav.flex-column .nav-item .nav-link:hover,
+[data-theme="dark"] .nav.flex-column .nav-item .nav-link:focus,
+[data-theme="dark"] .nav.flex-column .nav-item .nav-link.active,
+[data-theme="dark"] .navbar-dark .navbar-nav .nav-item .nav-link:hover,
+[data-theme="dark"] .bg-dark .nav-item .nav-link:hover,
+[data-theme="dark"] .dashboard-nav .nav-item .nav-link:hover,
+[data-theme="dark"] .nav-vertical .nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #f0f0f0 !important;
+    border-left: 3px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Исправление иконок в темной теме - удаление серых квадратиков и фона */
+[data-theme="dark"] .fa,
+[data-theme="dark"] .fas,
+[data-theme="dark"] .far,
+[data-theme="dark"] .fab,
+[data-theme="dark"] i.fa,
+[data-theme="dark"] i.fas,
+[data-theme="dark"] i.far,
+[data-theme="dark"] i.fab,
+[data-theme="dark"] a i,
+[data-theme="dark"] button i {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Исправление проблемы с фоном при наведении на иконки */
+[data-theme="dark"] a:hover i,
+[data-theme="dark"] button:hover i,
+[data-theme="dark"] .nav-link:hover i,
+[data-theme="dark"] .btn:hover i,
+[data-theme="dark"] .dropdown-item:hover i {
+    color: inherit !important;
+    background-color: transparent !important;
+    opacity: 1 !important;
+}
+
+/* Удаление фоновых блоков у социальных иконок */
+[data-theme="dark"] .social-icons a,
+[data-theme="dark"] .social-icons i {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: var(--primary-color) !important;
+}
+
+/* Удаление любых контейнеров вокруг иконок */
+[data-theme="dark"] .icon-container,
+[data-theme="dark"] .icon-wrapper,
+[data-theme="dark"] .icon-box,
+[data-theme="dark"] a[class*="icon"],
+[data-theme="dark"] span[class*="icon"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Дополнительные стили для удаления серого фона вокруг иконок */
+[data-theme="dark"] .footer-content a i,
+[data-theme="dark"] .social-media a i,
+[data-theme="dark"] .social-links a i,
+[data-theme="dark"] .footer a i,
+[data-theme="dark"] .footer-icons a {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 10px !important;
+    color: var(--primary-color) !important;
+}
+
+/* Стиль для иконок в футере при наведении */
+[data-theme="dark"] .footer-content a:hover i,
+[data-theme="dark"] .social-media a:hover i,
+[data-theme="dark"] .social-links a:hover i,
+[data-theme="dark"] .footer a:hover i,
+[data-theme="dark"] .footer-icons a:hover {
+    color: #ffffff !important;
+    background: none !important;
+    transform: scale(1.2) !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Удаление всех блоков вокруг иконок телеграм и вконтакте */
+[data-theme="dark"] .fab.fa-telegram,
+[data-theme="dark"] .fab.fa-vk,
+[data-theme="dark"] a .fab.fa-telegram,
+[data-theme="dark"] a .fab.fa-vk,
+[data-theme="dark"] a.telegram,
+[data-theme="dark"] a.vk {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--primary-color) !important;
+    padding: 0 !important;
+}
+
+/* Исправление для конкретных проблем с блоками вокруг иконок */
+[data-theme="dark"] .social-icons a,
+[data-theme="dark"] a.social-icon,
+[data-theme="dark"] a[href*="t.me"],
+[data-theme="dark"] a[href*="vk.com"],
+[data-theme="dark"] a[href*="telegram"],
+[data-theme="dark"] footer a i {
+    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Очистка любых хардкодных стилей для блоков иконок */
+[data-theme="dark"] [style*="background"],
+[data-theme="dark"] [style*="background-color"],
+[data-theme="dark"] [class*="bg-"] {
+    background-color: transparent !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Особое исправление для фона вокруг иконок, как на скриншоте */
+[data-theme="dark"] i.fab + span, 
+[data-theme="dark"] a > i,
+[data-theme="dark"] a > span > i,
+[data-theme="dark"] button > i,
+[data-theme="dark"] .btn > i {
+    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Принудительное удаление серых квадратиков рядом с иконками */
+[data-theme="dark"] .footer .social-icons a:before,
+[data-theme="dark"] .footer .social-icons a:after,
+[data-theme="dark"] .social-icons a:before,
+[data-theme="dark"] .social-icons a:after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Очистка любых хардкодных стилей для блоков иконок - более узкий селектор */
+[data-theme="dark"] .footer [style*="background"],
+[data-theme="dark"] .footer [style*="background-color"],
+[data-theme="dark"] .social-icons [style*="background"],
+[data-theme="dark"] .social-icons [style*="background-color"],
+[data-theme="dark"] .footer [class*="bg-"],
+[data-theme="dark"] .social-icons [class*="bg-"] {
+    background-color: transparent !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+/* Специфически для иконок в футере, как на скриншоте */
+[data-theme="dark"] .footer a,
+[data-theme="dark"] .footer-icons a,
+[data-theme="dark"] .social-icons a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: none !important;
+    margin: 0 5px !important;
+}
+
+[data-theme="dark"] .footer a i,
+[data-theme="dark"] .footer-icons a i,
+[data-theme="dark"] .social-icons a i {
+    color: var(--primary-color) !important;
+    font-size: 1.5rem !important;
+    background: none !important;
+}
+
+/* Конкретные стили для иконок телеграм и вконтакте в футере */
+[data-theme="dark"] .fab.fa-telegram-plane,
+[data-theme="dark"] .fab.fa-telegram,
+[data-theme="dark"] .fab.fa-vk,
+[data-theme="dark"] .social-icons .fa-telegram-plane,
+[data-theme="dark"] .social-icons .fa-telegram,
+[data-theme="dark"] .social-icons .fa-vk {
+    color: var(--primary-color) !important;
+    font-size: 1.5rem !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Контейнеры для соц. иконок - полная очистка от любых фонов */
+[data-theme="dark"] .footer .social-icons a,
+[data-theme="dark"] .social-icons a,
+[data-theme="dark"] a.telegram,
+[data-theme="dark"] a.vk {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 8px !important;
+    padding: 5px !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Улучшенное поведение при наведении */
+[data-theme="dark"] .social-icons a:hover {
+    transform: scale(1.2) !important;
+    background: none !important;
+}
+
+[data-theme="dark"] .social-icons a:hover i {
+    color: #ffffff !important;
+    background: none !important;
+}
+
+/* Унификация расположения иконок в обеих темах */
+.social-icons a,
+.footer .social-icons a,
+.footer-icons a,
+a.telegram,
+a.vk,
+footer .social-icons a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 8px !important;
+    padding: 5px !important;
+    transition: transform 0.3s ease !important;
+}
+
+/* Одинаковые размеры иконок в обеих темах */
+.fab.fa-telegram-plane,
+.fab.fa-telegram,
+.fab.fa-vk,
+.social-icons .fa-telegram-plane,
+.social-icons .fa-telegram,
+.social-icons .fa-vk,
+footer i.fab {
+    font-size: 1.5rem !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Единые стили отступов для иконок, независимо от темы */
+.social-icons,
+footer .social-icons,
+.footer-content .social-icons {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin: 10px 0 !important;
+}
+
+/* Отмена всех разных маргинов у контейнеров иконок */
+.social-icons a:not(:last-child),
+.footer .social-icons a:not(:last-child),
+footer .social-icons a:not(:last-child) {
+    margin-right: 16px !important;
+}
+
+/* Унификация фона иконок во всех темах */
+.social-icons a,
+.footer-content .social-icons a,
+.footer-icons a,
+.footer a.telegram,
+.footer a.vk {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Исправление отступов иконок */
+.social-icons {
+    padding: 0 !important;
+    margin: 10px 0 !important;
+}
+
+/* Отменяем флекс-гэп, так как он может по-разному работать в разных браузерах */
+.social-icons,
+footer .social-icons,
+.footer-content .social-icons {
+    gap: 0 !important;
+}
+
+/* Гарантируем одинаковое расположение иконок через padding и margin */
+.social-icons a,
+.footer .social-icons a,
+.footer-icons a,
+a.telegram,
+a.vk,
+footer .social-icons a {
+    padding: 5px 10px !important;
+    margin: 0 !important;
+    background: transparent !important;
+}
+
+/* Финальная фиксация расположения иконок - универсальное решение для обеих тем */
+:root, [data-theme="dark"] {
+    --icon-space: 8px; /* Унифицированный отступ для иконок */
+}
+
+/* Переопределение стилей для всех контейнеров с иконками */
+.footer-content .social-icons,
+.footer .social-icons,
+footer .social-icons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 10px 0 !important;
+}
+
+/* Универсальные стили для ссылок с иконками, работающие в обеих темах */
+.footer-content .social-icons a,
+.footer .social-icons a,
+footer .social-icons a {
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 5px var(--icon-space) !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.3s ease !important;
+    text-decoration: none !important;
+}
+
+/* Одинаковый стиль иконок в обеих темах */
+.footer-content .social-icons a i,
+.footer .social-icons a i,
+footer .social-icons a i {
+    font-size: 1.5rem !important;
+    display: inline-block !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Выравнивание иконок по левому краю */
+.footer-content .social-icons,
+.footer .social-icons,
+footer .social-icons {
+    display: flex !important;
+    justify-content: flex-start !important; /* Выравнивание по левому краю */
+    align-items: center !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    margin: 10px 0 !important;
+}
+
+/* Дополнительная настройка отступов для выравнивания слева */
+.social-icons {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    text-align: left !important;
+}
+
+/* Настройка первой иконки для выравнивания слева */
+.social-icons a:first-child,
+.footer .social-icons a:first-child,
+.footer-content .social-icons a:first-child {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 
