@@ -23,15 +23,43 @@
                         @csrf
                         
                         <div class="form-group">
+                            <label for="category_type">Тип категории</label>
+                            <select name="category_type" id="category_type" class="form-control" required>
+                                <option value="">-- Выберите тип категории --</option>
+                                <option value="boys" {{ old('category_type') == 'boys' ? 'selected' : '' }}>Для мальчиков</option>
+                                <option value="girls" {{ old('category_type') == 'girls' ? 'selected' : '' }}>Для девочек</option>
+                                <option value="babies" {{ old('category_type') == 'babies' ? 'selected' : '' }}>Для новорожденных</option>
+                            </select>
+                            <small class="form-text text-muted">Выберите к какому разделу относится категория.</small>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="parent_id">Родительская категория</label>
                             <select name="parent_id" id="parent_id" class="form-control">
                                 <option value="">Нет (корневая категория)</option>
-                                @foreach($categories as $category)
-                                    <option value="{{ $category->id }}" {{ request('parent_id') == $category->id ? 'selected' : '' }}>
-                                        {{ str_repeat('— ', $category->level) }}{{ $category->name }}
-                                    </option>
-                                @endforeach
+                                <optgroup label="Для мальчиков" id="boys-categories" class="category-group">
+                                    @foreach($boyCategoriesForSelect ?? [] as $category)
+                                        <option value="{{ $category->id }}" {{ request('parent_id') == $category->id ? 'selected' : '' }}>
+                                            {{ str_repeat('— ', $category->level) }}{{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+                                <optgroup label="Для девочек" id="girls-categories" class="category-group">
+                                    @foreach($girlCategoriesForSelect ?? [] as $category)
+                                        <option value="{{ $category->id }}" {{ request('parent_id') == $category->id ? 'selected' : '' }}>
+                                            {{ str_repeat('— ', $category->level) }}{{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+                                <optgroup label="Для новорожденных" id="babies-categories" class="category-group">
+                                    @foreach($babyCategoriesForSelect ?? [] as $category)
+                                        <option value="{{ $category->id }}" {{ request('parent_id') == $category->id ? 'selected' : '' }}>
+                                            {{ str_repeat('— ', $category->level) }}{{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
                             </select>
+                            <small class="form-text text-muted">Оставьте пустым, если это корневая категория.</small>
                             @error('parent_id')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -50,6 +78,7 @@
                             <label for="slug">Slug</label>
                             <input type="text" class="form-control @error('slug') is-invalid @enderror" 
                                    id="slug" name="slug" value="{{ old('slug') }}" required>
+                            <small class="form-text text-muted">URL-адрес категории (только латинские буквы, цифры и дефисы).</small>
                             @error('slug')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -85,7 +114,7 @@
                         <div class="form-group">
                             <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="is_active" 
-                                       name="is_active" value="1" {{ old('is_active') ? 'checked' : '' }}>
+                                       name="is_active" value="1" {{ old('is_active', '1') ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="is_active">Активна</label>
                             </div>
                         </div>
@@ -108,15 +137,67 @@ document.addEventListener('DOMContentLoaded', function() {
     // Автоматическая генерация slug из названия
     const nameInput = document.getElementById('name');
     const slugInput = document.getElementById('slug');
+    const typeSelect = document.getElementById('category_type');
+    const parentSelect = document.getElementById('parent_id');
+    
+    // Функция для транслитерации кириллицы в латиницу
+    function transliterate(text) {
+        const ru = {
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
+            'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+            'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'ts',
+            'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ы': 'y', 'э': 'e', 'ю': 'yu', 'я': 'ya',
+            ' ': '-', '_': '-', ',': '-', '.': '-', '!': '-', '?': '-'
+        };
+
+        text = text.toLowerCase();
+        let result = '';
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            result += ru[char] || char;
+        }
+        
+        // Удаляем все символы, кроме латинских букв, цифр и дефисов
+        result = result.replace(/[^a-z0-9-]/g, '');
+        
+        // Удаляем дефисы в начале и конце
+        result = result.replace(/^-+|-+$/g, '');
+        
+        return result;
+    }
     
     nameInput.addEventListener('input', function() {
         if (!slugInput.value) {
-            slugInput.value = this.value
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/(^-|-$)/g, '');
+            slugInput.value = transliterate(this.value);
         }
     });
+    
+    // Фильтрация родительских категорий в зависимости от выбранного типа
+    typeSelect.addEventListener('change', function() {
+        const selectedType = this.value;
+        
+        // Скрываем все группы категорий
+        const categoryGroups = document.querySelectorAll('.category-group');
+        categoryGroups.forEach(group => {
+            group.style.display = 'none';
+        });
+        
+        // Показываем группу, соответствующую выбранному типу
+        if (selectedType === 'boys') {
+            document.getElementById('boys-categories').style.display = 'block';
+        } else if (selectedType === 'girls') {
+            document.getElementById('girls-categories').style.display = 'block';
+        } else if (selectedType === 'babies') {
+            document.getElementById('babies-categories').style.display = 'block';
+        }
+        
+        // Сбрасываем выбранную родительскую категорию
+        parentSelect.value = '';
+    });
+    
+    // Инициализация при загрузке страницы
+    typeSelect.dispatchEvent(new Event('change'));
 });
 </script>
 @endsection 

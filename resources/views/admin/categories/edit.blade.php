@@ -6,7 +6,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <h2>Редактирование категории: {{ $category->name }}</h2>
+                    <h2>Редактирование категории</h2>
                 </div>
                 <div class="card-body">
                     @if ($errors->any())
@@ -24,60 +24,114 @@
                         @method('PUT')
                         
                         <div class="form-group">
-                            <label for="name">Название категории</label>
-                            <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $category->name) }}" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="slug">URL-адрес (slug)</label>
-                            <input type="text" class="form-control" name="slug" id="slug" value="{{ old('slug', $category->slug) }}">
-                            <small class="form-text text-muted">Используйте только латинские буквы, цифры и дефисы. Например: "clothes-for-boys"</small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="description">Описание категории</label>
-                            <textarea class="form-control" name="description" id="description" rows="5">{{ old('description', $category->description) }}</textarea>
+                            <label for="category_type">Тип категории</label>
+                            <select name="category_type" id="category_type" class="form-control" required>
+                                <option value="">-- Выберите тип категории --</option>
+                                <option value="boys" {{ $categoryType == 'boys' || old('category_type') == 'boys' ? 'selected' : '' }}>Для мальчиков</option>
+                                <option value="girls" {{ $categoryType == 'girls' || old('category_type') == 'girls' ? 'selected' : '' }}>Для девочек</option>
+                                <option value="babies" {{ $categoryType == 'babies' || old('category_type') == 'babies' ? 'selected' : '' }}>Для новорожденных</option>
+                            </select>
+                            <small class="form-text text-muted">Выберите к какому разделу относится категория.</small>
                         </div>
                         
                         <div class="form-group">
                             <label for="parent_id">Родительская категория</label>
-                            <select class="form-control" name="parent_id" id="parent_id">
-                                <option value="">-- Корневая категория --</option>
-                                @foreach($categories as $parentCategory)
-                                    @if($parentCategory->id != $category->id)
-                                        <option value="{{ $parentCategory->id }}" {{ old('parent_id', $category->parent_id) == $parentCategory->id ? 'selected' : '' }}>
-                                            {{ $parentCategory->name }}
-                                        </option>
-                                    @endif
-                                @endforeach
+                            <select name="parent_id" id="parent_id" class="form-control">
+                                <option value="">Нет (корневая категория)</option>
+                                <optgroup label="Для мальчиков" id="boys-categories" class="category-group">
+                                    @foreach($boyCategoriesForSelect ?? [] as $cat)
+                                        @if($cat->id != $category->id && (!$category->children->contains('id', $cat->id)))
+                                            <option value="{{ $cat->id }}" {{ $category->parent_id == $cat->id ? 'selected' : '' }}>
+                                                {{ str_repeat('— ', $cat->level) }}{{ $cat->name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </optgroup>
+                                <optgroup label="Для девочек" id="girls-categories" class="category-group">
+                                    @foreach($girlCategoriesForSelect ?? [] as $cat)
+                                        @if($cat->id != $category->id && (!$category->children->contains('id', $cat->id)))
+                                            <option value="{{ $cat->id }}" {{ $category->parent_id == $cat->id ? 'selected' : '' }}>
+                                                {{ str_repeat('— ', $cat->level) }}{{ $cat->name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </optgroup>
+                                <optgroup label="Для новорожденных" id="babies-categories" class="category-group">
+                                    @foreach($babyCategoriesForSelect ?? [] as $cat)
+                                        @if($cat->id != $category->id && (!$category->children->contains('id', $cat->id)))
+                                            <option value="{{ $cat->id }}" {{ $category->parent_id == $cat->id ? 'selected' : '' }}>
+                                                {{ str_repeat('— ', $cat->level) }}{{ $cat->name }}
+                                            </option>
+                                        @endif
+                                    @endforeach
+                                </optgroup>
                             </select>
+                            <small class="form-text text-muted">Оставьте пустым, если это корневая категория.</small>
+                            @error('parent_id')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="image">Изображение категории</label>
+                            <label for="name">Название категории</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" 
+                                   id="name" name="name" value="{{ old('name', $category->name) }}" required>
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="slug">Slug</label>
+                            <input type="text" class="form-control @error('slug') is-invalid @enderror" 
+                                   id="slug" name="slug" value="{{ old('slug', $category->slug) }}" required>
+                            <small class="form-text text-muted">URL-адрес категории (только латинские буквы, цифры и дефисы).</small>
+                            @error('slug')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Описание</label>
+                            <textarea class="form-control @error('description') is-invalid @enderror" 
+                                      id="description" name="description" rows="3">{{ old('description', $category->description) }}</textarea>
+                            @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Изображение</label>
                             @if($category->image)
                                 <div class="mb-2">
-                                    <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" style="max-width: 200px; max-height: 200px;">
-                                    <p class="text-muted mt-1">Текущее изображение</p>
+                                    <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" style="max-width: 200px; max-height: 100px;" class="img-thumbnail">
                                 </div>
                             @endif
-                            <input type="file" class="form-control-file" name="image" id="image">
-                            <small class="form-text text-muted">Оставьте пустым, чтобы сохранить текущее изображение</small>
+                            <input type="file" class="form-control-file @error('image') is-invalid @enderror" 
+                                   id="image" name="image">
+                            <small class="form-text text-muted">Оставьте пустым, если не хотите менять изображение.</small>
+                            @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="sort_order">Порядок сортировки</label>
-                            <input type="number" class="form-control" name="sort_order" id="sort_order" value="{{ old('sort_order', $category->sort_order) }}">
-                            <small class="form-text text-muted">Категории с меньшим значением будут отображаться выше</small>
+                            <input type="number" class="form-control @error('sort_order') is-invalid @enderror" 
+                                   id="sort_order" name="sort_order" value="{{ old('sort_order', $category->sort_order) }}">
+                            @error('sort_order')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
-                        
+
                         <div class="form-group">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="is_active" id="is_active" value="1" {{ old('is_active', $category->is_active) ? 'checked' : '' }}>
-                                <label class="custom-control-label" for="is_active">Активная категория</label>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="is_active" 
+                                       name="is_active" value="1" {{ old('is_active', $category->is_active) ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="is_active">Активна</label>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Сохранить изменения</button>
                             <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">Отмена</a>
@@ -92,30 +146,76 @@
 
 @section('scripts')
 <script>
-    // Автоматическое создание slug из названия, только если slug пуст
-    document.getElementById('name').addEventListener('input', function() {
-        var nameField = this;
-        var slugField = document.getElementById('slug');
+document.addEventListener('DOMContentLoaded', function() {
+    // Функция для транслитерации кириллицы в латиницу
+    function transliterate(text) {
+        const ru = {
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
+            'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+            'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'ts',
+            'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ы': 'y', 'э': 'e', 'ю': 'yu', 'я': 'ya',
+            ' ': '-', '_': '-', ',': '-', '.': '-', '!': '-', '?': '-'
+        };
+
+        text = text.toLowerCase();
+        let result = '';
         
-        // Только если поле slug пустое, предлагаем автоматическое заполнение
-        if (slugField.value === '') {
-            // Преобразуем кириллицу в латиницу (простая транслитерация)
-            var text = nameField.value.toLowerCase();
-            var translator = {
-                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
-                'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
-                'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'ts',
-                'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu',
-                'я': 'ya', ' ': '-', '_': '-', ',': '-', '.': '-', '!': '-', '?': '-'
-            };
-            
-            for (var char in translator) {
-                text = text.split(char).join(translator[char]);
-            }
-            
-            // Удаляем все символы, кроме букв, цифр и дефисов
-            slugField.value = text.replace(/[^a-z0-9-]/g, '');
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            result += ru[char] || char;
+        }
+        
+        // Удаляем все символы, кроме латинских букв, цифр и дефисов
+        result = result.replace(/[^a-z0-9-]/g, '');
+        
+        // Удаляем дефисы в начале и конце
+        result = result.replace(/^-+|-+$/g, '');
+        
+        return result;
+    }
+    
+    const nameInput = document.getElementById('name');
+    const slugInput = document.getElementById('slug');
+    const typeSelect = document.getElementById('category_type');
+    const parentSelect = document.getElementById('parent_id');
+    
+    // Автоматическая генерация slug из названия
+    nameInput.addEventListener('input', function() {
+        if (!slugInput.dataset.originalValue) {
+            slugInput.value = transliterate(this.value);
         }
     });
+    
+    // Сохраняем оригинальное значение slug
+    slugInput.dataset.originalValue = slugInput.value;
+    
+    // Если пользователь изменяет slug вручную, отключаем автогенерацию
+    slugInput.addEventListener('input', function() {
+        slugInput.dataset.originalValue = this.value;
+    });
+    
+    // Фильтрация родительских категорий в зависимости от выбранного типа
+    typeSelect.addEventListener('change', function() {
+        const selectedType = this.value;
+        
+        // Скрываем все группы категорий
+        const categoryGroups = document.querySelectorAll('.category-group');
+        categoryGroups.forEach(group => {
+            group.style.display = 'none';
+        });
+        
+        // Показываем группу, соответствующую выбранному типу
+        if (selectedType === 'boys') {
+            document.getElementById('boys-categories').style.display = 'block';
+        } else if (selectedType === 'girls') {
+            document.getElementById('girls-categories').style.display = 'block';
+        } else if (selectedType === 'babies') {
+            document.getElementById('babies-categories').style.display = 'block';
+        }
+    });
+    
+    // Инициализация при загрузке страницы
+    typeSelect.dispatchEvent(new Event('change'));
+});
 </script>
 @endsection 
